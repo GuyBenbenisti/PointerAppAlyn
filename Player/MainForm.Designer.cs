@@ -1,4 +1,6 @@
-﻿namespace Player
+﻿using System.Drawing;
+
+namespace Player
 {
     partial class MainForm
     {
@@ -153,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 545);
+            //this.ClientSize = new System.Drawing.Size(651, 545);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.mainMenuStrip);
@@ -182,7 +184,7 @@
             this.mainPanel.Location = new System.Drawing.Point(0, 35);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = this.Size;
+            this.mainPanel.Size = new Size(1723, 976);
             this.mainPanel.TabIndex = 2;
             // 
             // videoSourcePlayer
@@ -210,6 +212,7 @@
             // 
             // labelWhatIsThis
             // 
+            //this.labelWhatIsThis.Visible = false;
             this.labelWhatIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelWhatIsThis.Location = new System.Drawing.Point(2, 95);
             this.labelWhatIsThis.Name = "labelWhatIsThis";
@@ -220,6 +223,7 @@
             // 
             // labelWhoIsThis
             // 
+            this.labelWhoIsThis.Visible = false;
             this.labelWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelWhoIsThis.Location = new System.Drawing.Point(502, 95);
             this.labelWhoIsThis.Name = "labelWhoIsThis";
@@ -230,8 +234,9 @@
             // 
             // labelIWantThis
             // 
+            this.labelIWantThis.Visible = false;
             this.labelIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelIWantThis.Location = new System.Drawing.Point(-1, 364);
+            this.labelIWantThis.Location = new Point(this.Left, this.Top + 89);
             this.labelIWantThis.Name = "labelIWantThis";
             this.labelIWantThis.Size = new System.Drawing.Size(149, 29);
             this.labelIWantThis.TabIndex = 7;
@@ -240,8 +245,9 @@
             // 
             // labelTakeMeThere
             // 
+            //this.labelTakeMeThere.Visible = false;
             this.labelTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelTakeMeThere.Location = new System.Drawing.Point(502, 364);
+            this.labelTakeMeThere.Location = new Point(this.Right - 149, this.Bottom - (89 + 29));
             this.labelTakeMeThere.Name = "labelTakeMeThere";
             this.labelTakeMeThere.Size = new System.Drawing.Size(149, 29);
             this.labelTakeMeThere.TabIndex = 9;
@@ -250,18 +256,20 @@
             // 
             // buttonTakeMeThere
             // 
+            //this.buttonTakeMeThere.Visible = false;
             this.buttonTakeMeThere.BackgroundImage = global::Player.Properties.Resources.takeMeThere;
             this.buttonTakeMeThere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTakeMeThere.ForeColor = System.Drawing.Color.Black;
-            this.buttonTakeMeThere.Location = new System.Drawing.Point(503, 396);
+            this.buttonTakeMeThere.Location = this.labelTakeMeThere.Location = new Point(this.Right - 149, this.Bottom - 89);
             this.buttonTakeMeThere.Name = "buttonTakeMeThere";
-            this.buttonTakeMeThere.Size = new System.Drawing.Size(148, 89);
+            this.buttonTakeMeThere.Size = new System.Drawing.Size(149, 89);
             this.buttonTakeMeThere.TabIndex = 8;
             this.buttonTakeMeThere.UseVisualStyleBackColor = true;
             // 
             // buttonIWantThis
             // 
+            this.buttonIWantThis.Visible = false;
             this.buttonIWantThis.BackgroundImage = global::Player.Properties.Resources.iWantThis;
             this.buttonIWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,6 +282,7 @@
             // 
             // buttonWhoIsThis
             // 
+            this.buttonWhoIsThis.Visible = false;
             this.buttonWhoIsThis.BackgroundImage = global::Player.Properties.Resources.whoIsThis;
             this.buttonWhoIsThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,6 +295,7 @@
             // 
             // buttonWhatIsThis
             // 
+            //this.buttonWhatIsThis.Visible = false;
             this.buttonWhatIsThis.BackgroundImage = global::Player.Properties.Resources.whatIsThis;
             this.buttonWhatIsThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWhatIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

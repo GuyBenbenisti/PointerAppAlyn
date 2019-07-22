@@ -25,9 +25,9 @@ namespace Player
         private Stopwatch stopWatch = null;
 
         // Class constructor
-        public MainForm( )
+        public MainForm()
         {
-            InitializeComponent( );
+            InitializeComponent();
         }
 
         private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
