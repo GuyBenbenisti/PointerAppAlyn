@@ -45,10 +45,12 @@ namespace Player
         private void localVideoCaptureDeviceToolStripMenuItem_Click( object sender, EventArgs e )
         {
             VideoCaptureDeviceForm form = new VideoCaptureDeviceForm( );
-
+            form.CaptureSize = new Size(1280, 720);
+            
             if ( form.ShowDialog( this ) == DialogResult.OK )
             {
                 // create video source
+                form.CaptureSize = new Size(1280, 720);
                 VideoCaptureDevice videoSource = form.VideoDevice;
 
                 // open it
