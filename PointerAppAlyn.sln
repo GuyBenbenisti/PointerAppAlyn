@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TobiiAgent", "TobiiAgent\TobiiAgent.csproj", "{9C8933A3-2CAA-477B-A08B-41507683CFE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Player", "Player\Player.csproj", "{B31C0650-991B-4B28-9864-AE80C1785A3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoAppAndObjectDetector", "Player\VideoAppAndObjectDetector.csproj", "{B31C0650-991B-4B28-9864-AE80C1785A3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manager", "Manager\Manager.csproj", "{A55ACADE-CF60-47A5-BD9F-CB96506E8365}"
 EndProject
