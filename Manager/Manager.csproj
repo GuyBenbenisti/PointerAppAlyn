@@ -83,9 +83,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Player\VideoAppAndObjectDetector.csproj">
+    <ProjectReference Include="..\ObjectDetector\ObjectDetector.csproj">
+      <Project>{2522fe11-39c4-4981-a328-f5fe06fde235}</Project>
+      <Name>ObjectDetector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Player\UI.csproj">
       <Project>{b31c0650-991b-4b28-9864-ae80c1785a3f}</Project>
-      <Name>VideoAppAndObjectDetector</Name>
+      <Name>UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\TobiiAgent\TobiiAgent.csproj">
       <Project>{9c8933a3-2caa-477b-a08b-41507683cfe7}</Project>

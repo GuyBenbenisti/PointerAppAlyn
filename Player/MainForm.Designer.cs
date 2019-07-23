@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace VideoAppAndObjectDetector
+namespace ObjectDetector
 {
     partial class MainForm
     {
@@ -257,7 +257,7 @@ namespace VideoAppAndObjectDetector
             // buttonTakeMeThere
             // 
             //this.buttonTakeMeThere.Visible = false;
-            this.buttonTakeMeThere.BackgroundImage = global::VideoAppAndObjectDetector.Properties.Resources.takeMeThere;
+            this.buttonTakeMeThere.BackgroundImage = global::ObjectDetector.Properties.Resources.takeMeThere;
             this.buttonTakeMeThere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTakeMeThere.ForeColor = System.Drawing.Color.Black;
@@ -270,7 +270,7 @@ namespace VideoAppAndObjectDetector
             // buttonIWantThis
             // 
             this.buttonIWantThis.Visible = false;
-            this.buttonIWantThis.BackgroundImage = global::VideoAppAndObjectDetector.Properties.Resources.iWantThis;
+            this.buttonIWantThis.BackgroundImage = global::ObjectDetector.Properties.Resources.iWantThis;
             this.buttonIWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIWantThis.ForeColor = System.Drawing.Color.Black;
@@ -283,7 +283,7 @@ namespace VideoAppAndObjectDetector
             // buttonWhoIsThis
             // 
             this.buttonWhoIsThis.Visible = false;
-            this.buttonWhoIsThis.BackgroundImage = global::VideoAppAndObjectDetector.Properties.Resources.whoIsThis;
+            this.buttonWhoIsThis.BackgroundImage = global::ObjectDetector.Properties.Resources.whoIsThis;
             this.buttonWhoIsThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhoIsThis.ForeColor = System.Drawing.Color.Black;
@@ -296,7 +296,7 @@ namespace VideoAppAndObjectDetector
             // buttonWhatIsThis
             // 
             //this.buttonWhatIsThis.Visible = false;
-            this.buttonWhatIsThis.BackgroundImage = global::VideoAppAndObjectDetector.Properties.Resources.whatIsThis;
+            this.buttonWhatIsThis.BackgroundImage = global::ObjectDetector.Properties.Resources.whatIsThis;
             this.buttonWhatIsThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWhatIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhatIsThis.ForeColor = System.Drawing.Color.Black;
