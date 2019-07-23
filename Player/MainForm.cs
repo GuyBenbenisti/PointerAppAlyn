@@ -228,12 +228,22 @@ namespace UI
 
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buttonStopTobii_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void labelIWantThis_Click(object sender, EventArgs e)
+        private void buttonIWhatsThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWantThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWhoIsThis_Click(object sender, EventArgs e)
         {
 
         }
