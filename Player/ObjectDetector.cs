@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace VideoAppAndObjectDetector
 {
-    class ObjectDetector
+   public class ObjectDetector
     {
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "f00b15e35dc54148aed210c0611136f5";
-
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"Path";
+        private const string m_SubscriptionKey = "f00b15e35dc54148aed210c0611136f5";
+        private MemoryStream m_PictureMemoryStream;
+        private string localImagePath = @"C:\Documents\LocalImage.jpg";
+        // private const string localImagePath = @"Path";
 
         private void detect()
         {
             ComputerVisionClient computerVision = new ComputerVisionClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
+                new ApiKeyServiceClientCredentials(m_SubscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
