@@ -10,7 +10,7 @@ namespace Manager
     class Manager
     {
         private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
-        private ObjectDetector.ObjectDetector m_Detector;
+        private UI.ObjectDetector m_Detector;
         private void TryAndRecognize(double i_PointX, double i_PointY)
         {
             //TODO: Implement

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectDetector
+namespace UI
 {
    public class ObjectDetector
     {

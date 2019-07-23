@@ -1,4 +1,4 @@
-﻿namespace ObjectDetector
+﻿namespace UI
 {
     partial class URLForm
     {

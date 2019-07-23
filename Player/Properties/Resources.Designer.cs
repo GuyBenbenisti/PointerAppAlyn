@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ObjectDetector.Properties {
+namespace Player.Properties {
     using System;
     
     

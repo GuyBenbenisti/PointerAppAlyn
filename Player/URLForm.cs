@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ObjectDetector
+namespace UI
 {
     public partial class URLForm : Form
     {
