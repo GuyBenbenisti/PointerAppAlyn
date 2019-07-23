@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Vision, Version=2.2.5.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Vision.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -88,12 +92,20 @@
       <Name>ObjectDetector</Name>
     </ProjectReference>
     <ProjectReference Include="..\Player\UI.csproj">
-      <Project>{b31c0650-991b-4b28-9864-ae80c1785a3f}</Project>
+      <Project>{bf642637-49ce-469d-8b59-2eeed69234c2}</Project>
       <Name>UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\TobiiAgent\TobiiAgent.csproj">
       <Project>{9c8933a3-2caa-477b-a08b-41507683cfe7}</Project>
       <Name>TobiiAgent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YoloPipe.Harness\YoloPipe.Harness.csproj">
+      <Project>{94250f9a-51a0-4f51-b58e-35bde7dd1b43}</Project>
+      <Name>YoloPipe.Harness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YoloPipe\YoloPipe.csproj">
+      <Project>{d2247033-9614-4e77-bb69-f4ea5aa5b884}</Project>
+      <Name>YoloPipe</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
