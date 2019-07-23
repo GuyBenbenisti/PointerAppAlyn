@@ -4,6 +4,7 @@ import cv2 as cv
 import subprocess
 import time
 import os
+import json
 
 def show_image(img):
     cv.imshow("Image", img)
@@ -60,6 +61,14 @@ def generate_boxes_confidences_classids(outs, height, width, tconf):
                 classids.append(classid)
 
     return boxes, confidences, classids
+
+def print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en):
+    if print_en:
+        predicted_labels = [labels[ii] for ii in classids]
+        a = {"boxes": boxes, "confidences": confidences, "predicted_labels": predicted_labels, "idxs": idxs}
+        # b = json.dumps(a)
+        print(a)
+        print("#")
 
 def infer_image(net, layer_names, height, width, img, colors, labels, FLAGS, 
             boxes=None, confidences=None, classids=None, idxs=None, infer=True):
