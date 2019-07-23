@@ -4,8 +4,16 @@ import cv2 as cv
 import subprocess
 import time
 import os
-from yolo_utils import infer_image, show_image, print_json_to_terminal
+from yolo_utils import infer_image, show_image, print_json_to_terminal, infer_image_azure
 import json
+
+import requests
+from PIL import Image
+from io import BytesIO
+subscription_key = "e6958ea76a854f5bbefa34ee50a27c86"
+
+assert subscription_key
+vision_base_url = "https://vision-sdk.cognitiveservices.azure.com/"
 
 FLAGS = []
 
@@ -167,6 +175,9 @@ if __name__ == '__main__':
 				frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 		    						height, width, frame, colors, labels, FLAGS)
 				
+				azure_vision_json = infer_image_azure("C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/temp/", frame)
+				# azure_speech_json = infer_speech_azure(frame)
+
 				print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
 
 				count += 1
