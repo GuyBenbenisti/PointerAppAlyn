@@ -31,10 +31,6 @@ namespace UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.localVideoCaptureDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openVideofileusingDirectShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openJPEGURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMJPEGURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,63 +39,32 @@ namespace UI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.labelTakeMeThere = new System.Windows.Forms.Label();
-            this.buttonTakeMeThere = new System.Windows.Forms.Button();
-            this.labelWhoIsThis = new System.Windows.Forms.Label();
-            this.buttonWhoIsThis = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.flowLayoutStop = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutTake = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonTakeMeThere = new System.Windows.Forms.Button();
+            this.labelTakeMeThere = new System.Windows.Forms.Label();
             this.flowLayoutWho = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonIWantThis = new System.Windows.Forms.Button();
+            this.buttonWhoIsThis = new System.Windows.Forms.Button();
+            this.labelWhoIsThis = new System.Windows.Forms.Label();
             this.flowLayoutWantThis = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonWantThis = new System.Windows.Forms.Button();
             this.labelWantThis = new System.Windows.Forms.Label();
             this.flowLayoutWhatsThis = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonIWantThis = new System.Windows.Forms.Button();
             this.labelIWantThis = new System.Windows.Forms.Label();
             this.videoSourcePlayer = new AForge.Controls.VideoSourcePlayer();
-            this.mainMenuStrip.SuspendLayout();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip.SuspendLayout();
             this.mainPanel.SuspendLayout();
+            this.flowLayoutStop.SuspendLayout();
             this.flowLayoutTake.SuspendLayout();
             this.flowLayoutWho.SuspendLayout();
             this.flowLayoutWantThis.SuspendLayout();
             this.flowLayoutWhatsThis.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mainMenuStrip
-            // 
-            this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1277, 24);
-            this.mainMenuStrip.TabIndex = 0;
-            this.mainMenuStrip.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.localVideoCaptureDeviceToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // localVideoCaptureDeviceToolStripMenuItem
-            // 
-            this.localVideoCaptureDeviceToolStripMenuItem.Name = "localVideoCaptureDeviceToolStripMenuItem";
-            this.localVideoCaptureDeviceToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.localVideoCaptureDeviceToolStripMenuItem.Text = "Local &Video Capture Device";
-            this.localVideoCaptureDeviceToolStripMenuItem.Click += new System.EventHandler(this.localVideoCaptureDeviceToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // openVideofileusingDirectShowToolStripMenuItem
             // 
@@ -147,29 +112,71 @@ namespace UI
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.mainPanel.Controls.Add(this.flowLayoutStop);
             this.mainPanel.Controls.Add(this.flowLayoutTake);
             this.mainPanel.Controls.Add(this.flowLayoutWho);
             this.mainPanel.Controls.Add(this.flowLayoutWantThis);
             this.mainPanel.Controls.Add(this.flowLayoutWhatsThis);
             this.mainPanel.Controls.Add(this.videoSourcePlayer);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 24);
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1277, 552);
+            this.mainPanel.Size = new System.Drawing.Size(1277, 576);
             this.mainPanel.TabIndex = 2;
             // 
-            // labelTakeMeThere
+            // flowLayoutStop
             // 
-            this.labelTakeMeThere.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelTakeMeThere.Location = new System.Drawing.Point(2, 104);
-            this.labelTakeMeThere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTakeMeThere.Name = "labelTakeMeThere";
-            this.labelTakeMeThere.Size = new System.Drawing.Size(99, 19);
-            this.labelTakeMeThere.TabIndex = 9;
-            this.labelTakeMeThere.Text = "לשם";
-            this.labelTakeMeThere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutStop.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flowLayoutStop.BackColor = System.Drawing.Color.White;
+            this.flowLayoutStop.Controls.Add(this.button1);
+            this.flowLayoutStop.Controls.Add(this.label1);
+            this.flowLayoutStop.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutStop.Location = new System.Drawing.Point(586, 0);
+            this.flowLayoutStop.Name = "flowLayoutStop";
+            this.flowLayoutStop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutStop.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutStop.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::Player.Properties.Resources.whoIsThis;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(-2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 58);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(-2, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 19);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "עצור";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutTake
+            // 
+            this.flowLayoutTake.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutTake.BackColor = System.Drawing.Color.White;
+            this.flowLayoutTake.Controls.Add(this.buttonTakeMeThere);
+            this.flowLayoutTake.Controls.Add(this.labelTakeMeThere);
+            this.flowLayoutTake.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutTake.Location = new System.Drawing.Point(1177, 426);
+            this.flowLayoutTake.Name = "flowLayoutTake";
+            this.flowLayoutTake.Size = new System.Drawing.Size(100, 150);
+            this.flowLayoutTake.TabIndex = 11;
             // 
             // buttonTakeMeThere
             // 
@@ -188,17 +195,30 @@ namespace UI
             this.buttonTakeMeThere.UseVisualStyleBackColor = false;
             this.buttonTakeMeThere.Click += new System.EventHandler(this.buttonTakeMeThere_Click);
             // 
-            // labelWhoIsThis
+            // labelTakeMeThere
             // 
-            this.labelWhoIsThis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelWhoIsThis.Location = new System.Drawing.Point(-2, 62);
-            this.labelWhoIsThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWhoIsThis.Name = "labelWhoIsThis";
-            this.labelWhoIsThis.Size = new System.Drawing.Size(100, 19);
-            this.labelWhoIsThis.TabIndex = 5;
-            this.labelWhoIsThis.Text = "מי זה?";
-            this.labelWhoIsThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTakeMeThere.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelTakeMeThere.Location = new System.Drawing.Point(2, 104);
+            this.labelTakeMeThere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTakeMeThere.Name = "labelTakeMeThere";
+            this.labelTakeMeThere.Size = new System.Drawing.Size(99, 19);
+            this.labelTakeMeThere.TabIndex = 9;
+            this.labelTakeMeThere.Text = "לשם";
+            this.labelTakeMeThere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutWho
+            // 
+            this.flowLayoutWho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutWho.BackColor = System.Drawing.Color.White;
+            this.flowLayoutWho.Controls.Add(this.buttonWhoIsThis);
+            this.flowLayoutWho.Controls.Add(this.labelWhoIsThis);
+            this.flowLayoutWho.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutWho.Location = new System.Drawing.Point(1174, 0);
+            this.flowLayoutWho.Name = "flowLayoutWho";
+            this.flowLayoutWho.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutWho.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutWho.TabIndex = 10;
             // 
             // buttonWhoIsThis
             // 
@@ -215,55 +235,17 @@ namespace UI
             this.buttonWhoIsThis.TabIndex = 4;
             this.buttonWhoIsThis.UseVisualStyleBackColor = true;
             // 
-            // timer
+            // labelWhoIsThis
             // 
-            this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.Filter = "AVI files (*.avi)|*.avi|All files (*.*)|*.*";
-            this.openFileDialog.Title = "Opem movie";
-            // 
-            // flowLayoutTake
-            // 
-            this.flowLayoutTake.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutTake.BackColor = System.Drawing.Color.White;
-            this.flowLayoutTake.Controls.Add(this.buttonTakeMeThere);
-            this.flowLayoutTake.Controls.Add(this.labelTakeMeThere);
-            this.flowLayoutTake.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutTake.Location = new System.Drawing.Point(1177, 402);
-            this.flowLayoutTake.Name = "flowLayoutTake";
-            this.flowLayoutTake.Size = new System.Drawing.Size(100, 150);
-            this.flowLayoutTake.TabIndex = 11;
-            // 
-            // flowLayoutWho
-            // 
-            this.flowLayoutWho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutWho.BackColor = System.Drawing.Color.White;
-            this.flowLayoutWho.Controls.Add(this.buttonWhoIsThis);
-            this.flowLayoutWho.Controls.Add(this.labelWhoIsThis);
-            this.flowLayoutWho.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutWho.Location = new System.Drawing.Point(1174, 0);
-            this.flowLayoutWho.Name = "flowLayoutWho";
-            this.flowLayoutWho.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutWho.Size = new System.Drawing.Size(100, 100);
-            this.flowLayoutWho.TabIndex = 10;
-            // 
-            // buttonIWantThis
-            // 
-            this.buttonIWantThis.BackgroundImage = global::Player.Properties.Resources.whatIsThis;
-            this.buttonIWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonIWantThis.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonIWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIWantThis.ForeColor = System.Drawing.Color.Black;
-            this.buttonIWantThis.Location = new System.Drawing.Point(-1, 2);
-            this.buttonIWantThis.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonIWantThis.Name = "buttonIWantThis";
-            this.buttonIWantThis.Size = new System.Drawing.Size(99, 58);
-            this.buttonIWantThis.TabIndex = 6;
-            this.buttonIWantThis.UseVisualStyleBackColor = true;
+            this.labelWhoIsThis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelWhoIsThis.Location = new System.Drawing.Point(-2, 62);
+            this.labelWhoIsThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWhoIsThis.Name = "labelWhoIsThis";
+            this.labelWhoIsThis.Size = new System.Drawing.Size(100, 19);
+            this.labelWhoIsThis.TabIndex = 5;
+            this.labelWhoIsThis.Text = "מי זה?";
+            this.labelWhoIsThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutWantThis
             // 
@@ -272,7 +254,7 @@ namespace UI
             this.flowLayoutWantThis.Controls.Add(this.buttonWantThis);
             this.flowLayoutWantThis.Controls.Add(this.labelWantThis);
             this.flowLayoutWantThis.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 445);
+            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 469);
             this.flowLayoutWantThis.Name = "flowLayoutWantThis";
             this.flowLayoutWantThis.Size = new System.Drawing.Size(100, 100);
             this.flowLayoutWantThis.TabIndex = 9;
@@ -317,6 +299,21 @@ namespace UI
             this.flowLayoutWhatsThis.Size = new System.Drawing.Size(100, 100);
             this.flowLayoutWhatsThis.TabIndex = 8;
             // 
+            // buttonIWantThis
+            // 
+            this.buttonIWantThis.BackgroundImage = global::Player.Properties.Resources.whatIsThis;
+            this.buttonIWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonIWantThis.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonIWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIWantThis.ForeColor = System.Drawing.Color.Black;
+            this.buttonIWantThis.Location = new System.Drawing.Point(-1, 2);
+            this.buttonIWantThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonIWantThis.Name = "buttonIWantThis";
+            this.buttonIWantThis.Size = new System.Drawing.Size(99, 58);
+            this.buttonIWantThis.TabIndex = 6;
+            this.buttonIWantThis.UseVisualStyleBackColor = true;
+            // 
             // labelIWantThis
             // 
             this.labelIWantThis.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -328,6 +325,7 @@ namespace UI
             this.labelIWantThis.TabIndex = 7;
             this.labelIWantThis.Text = "מה זה?";
             this.labelIWantThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelIWantThis.Click += new System.EventHandler(this.labelIWantThis_Click);
             // 
             // videoSourcePlayer
             // 
@@ -338,10 +336,20 @@ namespace UI
             this.videoSourcePlayer.Location = new System.Drawing.Point(0, 0);
             this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(10);
             this.videoSourcePlayer.Name = "videoSourcePlayer";
-            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 552);
+            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 576);
             this.videoSourcePlayer.TabIndex = 0;
             this.videoSourcePlayer.VideoSource = null;
             this.videoSourcePlayer.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "AVI files (*.avi)|*.avi|All files (*.*)|*.*";
+            this.openFileDialog.Title = "Opem movie";
             // 
             // MainForm
             // 
@@ -351,20 +359,18 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(1277, 598);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.mainMenuStrip);
-            this.MainMenuStrip = this.mainMenuStrip;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Simple Player";
+            this.Text = "Pointer App - Alyn";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.mainMenuStrip.ResumeLayout(false);
-            this.mainMenuStrip.PerformLayout();
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.mainPanel.ResumeLayout(false);
+            this.flowLayoutStop.ResumeLayout(false);
             this.flowLayoutTake.ResumeLayout(false);
             this.flowLayoutTake.PerformLayout();
             this.flowLayoutWho.ResumeLayout(false);
@@ -376,13 +382,8 @@ namespace UI
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip mainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem localVideoCaptureDeviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripStatusLabel fpsLabel;
@@ -404,5 +405,8 @@ namespace UI
         private System.Windows.Forms.FlowLayoutPanel flowLayoutTake;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutWho;
         private AForge.Controls.VideoSourcePlayer videoSourcePlayer;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutStop;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

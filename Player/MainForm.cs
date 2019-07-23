@@ -35,10 +35,31 @@ namespace UI
             CloseCurrentVideoSource( );
         }
 
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+            localVideoCaptureDeviceToolStripMenuItem_Start();
+
+        }
         // "Exit" menu item clicked
         private void exitToolStripMenuItem_Click( object sender, EventArgs e )
         {
             this.Close( );
+        }
+
+        private void localVideoCaptureDeviceToolStripMenuItem_Start()
+        {
+            VideoCaptureDeviceForm form = new VideoCaptureDeviceForm();
+            form.CaptureSize = new Size(1280, 720);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                // create video source
+                form.CaptureSize = new Size(1280, 720);
+                VideoCaptureDevice videoSource = form.VideoDevice;
+
+                // open it
+                OpenVideoSource(videoSource);
+            }
         }
 
         // Open local video capture device
@@ -209,6 +230,16 @@ namespace UI
         }
 
         private void buttonTakeMeThere_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelIWantThis_Click(object sender, EventArgs e)
         {
 
         }
