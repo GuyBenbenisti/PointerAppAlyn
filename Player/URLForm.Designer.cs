@@ -1,4 +1,4 @@
-﻿namespace VideoAppAndObjectDetector
+﻿namespace ObjectDetector
 {
     partial class URLForm
     {

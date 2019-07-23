@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoAppAndObjectDetector
+namespace ObjectDetector
 {
    public class ObjectDetector
     {

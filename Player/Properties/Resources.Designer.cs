@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VideoAppAndObjectDetector.Properties {
+namespace ObjectDetector.Properties {
     using System;
     
     

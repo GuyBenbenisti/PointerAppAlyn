@@ -1,4 +1,4 @@
-﻿using VideoAppAndObjectDetector;
+﻿using ObjectDetector;
 using System;
 using System.Collections.Generic;
 using System.Linq;

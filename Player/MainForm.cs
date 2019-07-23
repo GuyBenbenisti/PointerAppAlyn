@@ -18,7 +18,7 @@ using System.Diagnostics;
 using AForge.Video;
 using AForge.Video.DirectShow;
 
-namespace VideoAppAndObjectDetector
+namespace ObjectDetector
 {
     public partial class MainForm : Form
     {
