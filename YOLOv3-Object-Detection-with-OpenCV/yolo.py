@@ -4,7 +4,8 @@ import cv2 as cv
 import subprocess
 import time
 import os
-from yolo_utils import infer_image, show_image
+from yolo_utils import infer_image, show_image, print_json_to_terminal
+import json
 
 FLAGS = []
 
@@ -165,6 +166,9 @@ if __name__ == '__main__':
 			if count == 0:
 				frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 		    						height, width, frame, colors, labels, FLAGS)
+				
+				print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
+
 				count += 1
 			else:
 				frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
