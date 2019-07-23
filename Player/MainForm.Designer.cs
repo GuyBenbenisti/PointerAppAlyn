@@ -144,9 +144,9 @@ namespace UI
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackgroundImage = global::Player.Properties.Resources.whoIsThis;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(-2, 2);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
@@ -184,7 +184,7 @@ namespace UI
             this.buttonTakeMeThere.BackColor = System.Drawing.Color.Transparent;
             this.buttonTakeMeThere.BackgroundImage = global::Player.Properties.Resources.takeMeThere;
             this.buttonTakeMeThere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonTakeMeThere.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonTakeMeThere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTakeMeThere.ForeColor = System.Drawing.Color.Transparent;
             this.buttonTakeMeThere.Location = new System.Drawing.Point(2, 2);
@@ -225,9 +225,9 @@ namespace UI
             this.buttonWhoIsThis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonWhoIsThis.BackgroundImage = global::Player.Properties.Resources.whoIsThis;
             this.buttonWhoIsThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonWhoIsThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonWhoIsThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWhoIsThis.ForeColor = System.Drawing.Color.Black;
+            this.buttonWhoIsThis.ForeColor = System.Drawing.Color.White;
             this.buttonWhoIsThis.Location = new System.Drawing.Point(-2, 2);
             this.buttonWhoIsThis.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWhoIsThis.Name = "buttonWhoIsThis";
@@ -264,9 +264,9 @@ namespace UI
             this.buttonWantThis.BackgroundImage = global::Player.Properties.Resources.iWantThis;
             this.buttonWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWantThis.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWantThis.ForeColor = System.Drawing.Color.Black;
+            this.buttonWantThis.ForeColor = System.Drawing.Color.White;
             this.buttonWantThis.Location = new System.Drawing.Point(2, 2);
             this.buttonWantThis.Margin = new System.Windows.Forms.Padding(2);
             this.buttonWantThis.Name = "buttonWantThis";
@@ -304,9 +304,9 @@ namespace UI
             this.buttonIWantThis.BackgroundImage = global::Player.Properties.Resources.whatIsThis;
             this.buttonIWantThis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonIWantThis.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonIWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonIWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIWantThis.ForeColor = System.Drawing.Color.Black;
+            this.buttonIWantThis.ForeColor = System.Drawing.Color.White;
             this.buttonIWantThis.Location = new System.Drawing.Point(-1, 2);
             this.buttonIWantThis.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIWantThis.Name = "buttonIWantThis";
