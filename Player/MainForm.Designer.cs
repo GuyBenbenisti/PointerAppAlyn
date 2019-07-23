@@ -30,14 +30,11 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.openVideofileusingDirectShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openJPEGURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMJPEGURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.capture1stDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.flowLayoutStop = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,9 +52,7 @@ namespace UI
             this.buttonIWantThis = new System.Windows.Forms.Button();
             this.labelIWantThis = new System.Windows.Forms.Label();
             this.videoSourcePlayer = new AForge.Controls.VideoSourcePlayer();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.statusStrip.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.flowLayoutStop.SuspendLayout();
             this.flowLayoutTake.SuspendLayout();
@@ -91,27 +86,8 @@ namespace UI
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(367, 6);
             // 
-            // statusStrip
-            // 
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fpsLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 576);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1277, 22);
-            this.statusStrip.TabIndex = 1;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // fpsLabel
-            // 
-            this.fpsLabel.Name = "fpsLabel";
-            this.fpsLabel.Size = new System.Drawing.Size(1262, 17);
-            this.fpsLabel.Spring = true;
-            this.fpsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // mainPanel
             // 
-            this.mainPanel.AutoSize = true;
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.BackColor = System.Drawing.SystemColors.Info;
             this.mainPanel.Controls.Add(this.flowLayoutStop);
@@ -123,7 +99,7 @@ namespace UI
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1277, 576);
+            this.mainPanel.Size = new System.Drawing.Size(1277, 598);
             this.mainPanel.TabIndex = 2;
             // 
             // flowLayoutStop
@@ -173,7 +149,7 @@ namespace UI
             this.flowLayoutTake.Controls.Add(this.buttonTakeMeThere);
             this.flowLayoutTake.Controls.Add(this.labelTakeMeThere);
             this.flowLayoutTake.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutTake.Location = new System.Drawing.Point(1177, 426);
+            this.flowLayoutTake.Location = new System.Drawing.Point(1177, 448);
             this.flowLayoutTake.Name = "flowLayoutTake";
             this.flowLayoutTake.Size = new System.Drawing.Size(100, 150);
             this.flowLayoutTake.TabIndex = 11;
@@ -254,7 +230,7 @@ namespace UI
             this.flowLayoutWantThis.Controls.Add(this.buttonWantThis);
             this.flowLayoutWantThis.Controls.Add(this.labelWantThis);
             this.flowLayoutWantThis.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 469);
+            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 491);
             this.flowLayoutWantThis.Name = "flowLayoutWantThis";
             this.flowLayoutWantThis.Size = new System.Drawing.Size(100, 100);
             this.flowLayoutWantThis.TabIndex = 9;
@@ -336,15 +312,10 @@ namespace UI
             this.videoSourcePlayer.Location = new System.Drawing.Point(0, 0);
             this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(10);
             this.videoSourcePlayer.Name = "videoSourcePlayer";
-            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 576);
+            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 598);
             this.videoSourcePlayer.TabIndex = 0;
             this.videoSourcePlayer.VideoSource = null;
             this.videoSourcePlayer.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
-            // 
-            // timer
-            // 
-            this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // openFileDialog
             // 
@@ -356,10 +327,9 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1277, 598);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.statusStrip);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -367,8 +337,6 @@ namespace UI
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.flowLayoutStop.ResumeLayout(false);
             this.flowLayoutTake.ResumeLayout(false);
@@ -377,16 +345,12 @@ namespace UI
             this.flowLayoutWantThis.ResumeLayout(false);
             this.flowLayoutWhatsThis.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.ToolStripStatusLabel fpsLabel;
         private System.Windows.Forms.ToolStripMenuItem openVideofileusingDirectShowToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem openJPEGURLToolStripMenuItem;
