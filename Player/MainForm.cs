@@ -30,7 +30,7 @@ namespace UI
         public MainForm()
         {
             InitializeComponent();
-            m_Agent.StartWatching(this.detected);
+            m_Agent.StartWatching(this.onDetection);
         }
 
         private void MainForm_FormClosing( object sender, FormClosingEventArgs e )

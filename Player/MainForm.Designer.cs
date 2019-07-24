@@ -43,6 +43,7 @@ namespace UI
             this.buttonIWhatsThis = new System.Windows.Forms.Button();
             this.videoSourcePlayer = new AForge.Controls.VideoSourcePlayer();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panelDetectionFrame = new System.Windows.Forms.Panel();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@ namespace UI
             // 
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.mainPanel.Controls.Add(this.panelDetectionFrame);
             this.mainPanel.Controls.Add(this.buttonStopTobii);
             this.mainPanel.Controls.Add(this.buttonTakeMeThere);
             this.mainPanel.Controls.Add(this.buttonWhoIsThis);
@@ -83,8 +85,9 @@ namespace UI
             this.mainPanel.Controls.Add(this.videoSourcePlayer);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1277, 598);
+            this.mainPanel.Size = new System.Drawing.Size(1916, 920);
             this.mainPanel.TabIndex = 2;
             // 
             // buttonStopTobii
@@ -96,11 +99,10 @@ namespace UI
             this.buttonStopTobii.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStopTobii.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStopTobii.ForeColor = System.Drawing.Color.Black;
-            this.buttonStopTobii.Location = new System.Drawing.Point(565, 0);
-            this.buttonStopTobii.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonStopTobii.Location = new System.Drawing.Point(848, 0);
             this.buttonStopTobii.Name = "buttonStopTobii";
             this.buttonStopTobii.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonStopTobii.Size = new System.Drawing.Size(150, 150);
+            this.buttonStopTobii.Size = new System.Drawing.Size(225, 231);
             this.buttonStopTobii.TabIndex = 9;
             this.buttonStopTobii.Text = "עצור";
             this.buttonStopTobii.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -118,11 +120,10 @@ namespace UI
             this.buttonTakeMeThere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTakeMeThere.ForeColor = System.Drawing.Color.Black;
-            this.buttonTakeMeThere.Location = new System.Drawing.Point(1125, 446);
-            this.buttonTakeMeThere.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonTakeMeThere.Location = new System.Drawing.Point(1688, 686);
             this.buttonTakeMeThere.Name = "buttonTakeMeThere";
             this.buttonTakeMeThere.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonTakeMeThere.Size = new System.Drawing.Size(150, 150);
+            this.buttonTakeMeThere.Size = new System.Drawing.Size(225, 231);
             this.buttonTakeMeThere.TabIndex = 8;
             this.buttonTakeMeThere.Text = "לשם";
             this.buttonTakeMeThere.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -138,11 +139,10 @@ namespace UI
             this.buttonWhoIsThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhoIsThis.ForeColor = System.Drawing.Color.Black;
-            this.buttonWhoIsThis.Location = new System.Drawing.Point(1125, 0);
-            this.buttonWhoIsThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonWhoIsThis.Location = new System.Drawing.Point(1688, 0);
             this.buttonWhoIsThis.Name = "buttonWhoIsThis";
             this.buttonWhoIsThis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonWhoIsThis.Size = new System.Drawing.Size(150, 150);
+            this.buttonWhoIsThis.Size = new System.Drawing.Size(225, 231);
             this.buttonWhoIsThis.TabIndex = 4;
             this.buttonWhoIsThis.Text = "מי זה?";
             this.buttonWhoIsThis.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -158,11 +158,10 @@ namespace UI
             this.buttonWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWantThis.ForeColor = System.Drawing.Color.Black;
-            this.buttonWantThis.Location = new System.Drawing.Point(0, 446);
-            this.buttonWantThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonWantThis.Location = new System.Drawing.Point(0, 686);
             this.buttonWantThis.Name = "buttonWantThis";
             this.buttonWantThis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonWantThis.Size = new System.Drawing.Size(150, 150);
+            this.buttonWantThis.Size = new System.Drawing.Size(225, 231);
             this.buttonWantThis.TabIndex = 6;
             this.buttonWantThis.Text = "רוצה";
             this.buttonWantThis.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -178,10 +177,9 @@ namespace UI
             this.buttonIWhatsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIWhatsThis.ForeColor = System.Drawing.Color.Black;
             this.buttonIWhatsThis.Location = new System.Drawing.Point(0, 0);
-            this.buttonIWhatsThis.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIWhatsThis.Name = "buttonIWhatsThis";
             this.buttonIWhatsThis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.buttonIWhatsThis.Size = new System.Drawing.Size(150, 150);
+            this.buttonIWhatsThis.Size = new System.Drawing.Size(225, 231);
             this.buttonIWhatsThis.TabIndex = 6;
             this.buttonIWhatsThis.Text = "מה זה?";
             this.buttonIWhatsThis.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -196,9 +194,9 @@ namespace UI
             this.videoSourcePlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoSourcePlayer.ForeColor = System.Drawing.Color.White;
             this.videoSourcePlayer.Location = new System.Drawing.Point(0, 0);
-            this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(10);
+            this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.videoSourcePlayer.Name = "videoSourcePlayer";
-            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 598);
+            this.videoSourcePlayer.Size = new System.Drawing.Size(1916, 920);
             this.videoSourcePlayer.TabIndex = 0;
             this.videoSourcePlayer.VideoSource = null;
             this.videoSourcePlayer.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
@@ -208,14 +206,25 @@ namespace UI
             this.openFileDialog.Filter = "AVI files (*.avi)|*.avi|All files (*.*)|*.*";
             this.openFileDialog.Title = "Opem movie";
             // 
+            // panelDetectionFrame
+            // 
+            this.panelDetectionFrame.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDetectionFrame.BackColor = System.Drawing.Color.Lime;
+            this.panelDetectionFrame.Location = new System.Drawing.Point(567, 239);
+            this.panelDetectionFrame.Name = "panelDetectionFrame";
+            this.panelDetectionFrame.Size = new System.Drawing.Size(50, 50);
+            this.panelDetectionFrame.TabIndex = 10;
+            this.panelDetectionFrame.Visible = false;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1277, 598);
+            this.ClientSize = new System.Drawing.Size(1916, 920);
             this.Controls.Add(this.mainPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -243,5 +252,6 @@ namespace UI
         private System.Windows.Forms.Button buttonWantThis;
         private AForge.Controls.VideoSourcePlayer videoSourcePlayer;
         private System.Windows.Forms.Button buttonStopTobii;
+        private System.Windows.Forms.Panel panelDetectionFrame;
     }
 }
