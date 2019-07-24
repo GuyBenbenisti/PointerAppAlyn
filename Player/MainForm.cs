@@ -29,11 +29,10 @@ namespace UI
         private Stopwatch stopWatch = null;
         ObjectDetector m_Detector;
 
-        // Class constructor
+        // Class constructor//
         public MainForm()
         {
             InitializeComponent();
-            m_Agent.StartWatching(this.onDetection);
             m_Detector = new ObjectDetector();
         }
 
@@ -320,6 +319,12 @@ namespace UI
         private void buttonWhoIsThis_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settings = new SettingsForm();
+            settings.ShowDialog();
         }
     }
 }
