@@ -70,8 +70,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\AForge.Video.DirectShow.dll</HintPath>
     </Reference>-->
+    <Reference Include="AForge">
+      <HintPath>..\ext\AForge.dll</HintPath>
+    </Reference>
     <Reference Include="AForge.Controls">
       <HintPath>..\ext\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\ext\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video">
       <HintPath>..\ext\AForge.Video.dll</HintPath>

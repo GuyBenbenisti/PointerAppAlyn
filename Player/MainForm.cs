@@ -20,6 +20,8 @@ using TobiiAgent;
 using UI;
 using Tobii.Interaction;
 using System.IO;
+using Common;
+using System.Linq;
 
 namespace UI
 {
@@ -97,6 +99,11 @@ namespace UI
 
                     var pt = this.PointToClient(new Point((int)x, (int)y));
 
+                    Button focusedButton = this.DescendentsFromPoint(pt).OfType<Button>().LastOrDefault();
+                    if (focusedButton != null)
+                    {
+                        focusedButton.PerformClick();
+                    }
                     if (Bounds.Contains(pt))
                     {
                         panelDetectionFrame.Location = gazeLocation;
@@ -169,10 +176,15 @@ namespace UI
             {
                 // create video source
                 FileVideoSource fileSource = new FileVideoSource(openFileDialog.FileName);
+                fileSource.VideoSourceError += FileSource_VideoSourceError;
 
                 // open it
                 OpenVideoSource(fileSource);
             }
+        }
+
+        private void FileSource_VideoSourceError(object sender, VideoSourceErrorEventArgs eventArgs)
+        {
         }
 
         // Open JPEG URL
