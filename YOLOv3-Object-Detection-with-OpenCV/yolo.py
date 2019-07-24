@@ -82,6 +82,16 @@ if __name__ == '__main__':
 		default=False,
 		help='Show the time taken to infer each image.')
 
+	parser.add_argument('-x', '--tobii-x-pos',
+		type=float,
+		default=-999,
+		help='tobii-gaze-x-position.')
+
+	parser.add_argument('-y', '--tobii-y-pos',
+		type=float,
+		default=-999,
+		help='tobii-gaze-y-position.')
+
 	FLAGS, unparsed = parser.parse_known_args()
 
 	# Download the YOLOv3 models if needed
@@ -122,8 +132,10 @@ if __name__ == '__main__':
 
 			frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 								height, width, img, colors, labels, FLAGS)
+			
+			print(boxes)
 
-			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language)
+			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, img, FLAGS)
 
 	elif FLAGS.video_path:
 		# Read the video
@@ -186,8 +198,9 @@ if __name__ == '__main__':
 				# azure_speech_json = infer_speech_azure(frame)
 
 				# print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
+				print(boxes)
 
-				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language)
+				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, frame, FLAGS)
 
     			# save to file
 				cv.imwrite(image_path, frame)
