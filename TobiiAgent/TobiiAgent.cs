@@ -33,7 +33,7 @@ namespace TobiiAgent
             var fixationBeginTime = 0d;
 
             // On fixation begin
-            m_Stream.Next += (o, fixation) =>
+            m_Stream.Next += async (o, fixation) =>
             {
                 // On the Next event, data comes as FixationData objects, wrapped in a StreamData<T> object.
                 var fixationPointX = fixation.Data.X;
