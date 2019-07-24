@@ -92,19 +92,19 @@ namespace UI
 
         internal void onDetection(double x, double y)
         {
-            double ratio = OS.GetScalingFactor(Handle);
-            Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
-
-            var pt = this.PointToClient(new Point((int)x, (int)y));
-
                 Action action = () =>
                 {
+                    double ratio = OS.GetScalingFactor(Handle);
+                    Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+
+                    var pt = this.PointToClient(new Point((int)x, (int)y));
+
                     Button focusedButton = this.DescendentsFromPoint(pt).OfType<Button>().LastOrDefault();
                     if (focusedButton != null)
                     {
                         focusedButton.PerformClick();
                     }
-                    else if (Bounds.Contains(pt))
+                    if (Bounds.Contains(pt))
                     {
                         panelDetectionFrame.Location = gazeLocation;
                         panelDetectionFrame.Visible = true;
@@ -126,7 +126,7 @@ namespace UI
         {
             try
             {
-                string path = @"C:\Users\t-gubenb\Desktop\Test";
+                string path = @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\FrameDir\";
                 //var imageStream = Image.FromStream(ms);
                 //imageStream.Save(outStream, ImageFormat.Jpeg);
                 System.Drawing.Image imgSave = System.Drawing.Image.FromStream(ms);
@@ -136,7 +136,7 @@ namespace UI
                 Graphics grSave = Graphics.FromImage(bmTemp);
                 grSave.DrawImage(imgSave, 0, 0, imgSave.Width, imgSave.Height);
 
-                bmTemp.Save(path + "\\" + "TobiiCapture" + ".jpg");
+                bmTemp.Save(path + "\\" + "image" + ".jpeg");
                 imgSave.Dispose();
                 bmSave.Dispose();
                 bmTemp.Dispose();
@@ -165,7 +165,8 @@ namespace UI
 
         internal void tryToDetect(MemoryStream i_MS)
         {
-            m_Detector.Detect(i_MS);
+            m_Detector.DetectFromImagePath();
+            // m_Detector.Detect(i_MS);
         }
 
         // Open video file using DirectShow
