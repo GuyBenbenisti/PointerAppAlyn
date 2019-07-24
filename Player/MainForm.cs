@@ -20,6 +20,8 @@ using TobiiAgent;
 using UI;
 using Tobii.Interaction;
 using System.IO;
+using Common;
+using System.Linq;
 
 namespace UI
 {
@@ -44,8 +46,8 @@ namespace UI
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             localVideoCaptureDeviceToolStripMenuItem_Start();
-            m_Agent = new TobiiAgentAnalyzer(new Host());
-            //m_Agent = new MockAgentAnalyzer();
+            //m_Agent = new TobiiAgentAnalyzer(new Host());
+            m_Agent = new MockAgentAnalyzer();
             m_Agent.StartWatching(this.onDetection);
         }
 
@@ -97,7 +99,12 @@ namespace UI
 
                 Action action = () =>
                 {
-                    if (Bounds.Contains(pt))
+                    Button focusedButton = this.DescendentsFromPoint(pt).OfType<Button>().LastOrDefault();
+                    if (focusedButton != null)
+                    {
+                        focusedButton.PerformClick();
+                    }
+                    else if (Bounds.Contains(pt))
                     {
                         panelDetectionFrame.Location = gazeLocation;
                         panelDetectionFrame.Visible = true;
@@ -149,7 +156,7 @@ namespace UI
                 Bitmap varBmp = videoSourcePlayer.GetCurrentVideoFrame();
                 varBmp.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 varBmp.Dispose();
-                memoryStream.Seek(0);
+                memoryStream.Seek(0L, SeekOrigin.Begin);
                 return memoryStream;
                 //varBmp.Save(@"C:\a.png", ImageFormat.Png);
             }
@@ -168,10 +175,15 @@ namespace UI
             {
                 // create video source
                 FileVideoSource fileSource = new FileVideoSource(openFileDialog.FileName);
+                fileSource.VideoSourceError += FileSource_VideoSourceError;
 
                 // open it
                 OpenVideoSource(fileSource);
             }
+        }
+
+        private void FileSource_VideoSourceError(object sender, VideoSourceErrorEventArgs eventArgs)
+        {
         }
 
         // Open JPEG URL
