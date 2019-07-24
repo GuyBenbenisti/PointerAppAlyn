@@ -25,7 +25,7 @@ namespace UI
 {
     public partial class MainForm : Form
     {
-        private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
+        private TobiiAgentAnalyzer m_Agent;
         private Stopwatch stopWatch = null;
         private TobiiAgentAnalyzer _agent;
 
@@ -33,26 +33,6 @@ namespace UI
         public MainForm()
         {
             InitializeComponent();
-            m_Agent.StartWatching(this.onDetection);
-        }
-
-        private void DetectionOccurred(double x, double y)
-        {
-            Action action = () =>
-            {
-                var scalingFactor = OS.GetScalingFactor(Handle);
-                x /= scalingFactor;
-                y /= scalingFactor;
-
-                var pt = this.PointToClient(new Point((int)x, (int)y));
-
-                if (Bounds.Contains(pt))
-                {
-                    indicator.Location = pt;
-                }
-            };
-
-            Invoke(action);
         }
 
         private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -63,9 +43,8 @@ namespace UI
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             localVideoCaptureDeviceToolStripMenuItem_Start();
-            _agent = new TobiiAgentAnalyzer(null);
-            _agent.StartWatching(DetectionOccurred);
-
+            m_Agent = new TobiiAgentAnalyzer(new Host());
+            m_Agent.StartWatching(this.onDetection);
         }
 
         // "Exit" menu item clicked
@@ -111,6 +90,11 @@ namespace UI
         {
             double ratio = Player.Graphics.getScalingFactor();
             Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+
+            //var pt = this.PointToClient(new Point((int)x, (int)y));
+
+            //if (Bounds.Contains(pt))
+
             Action action = () =>
             {
                 panelDetectionFrame.Visible = true;
