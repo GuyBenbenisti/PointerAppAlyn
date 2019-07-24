@@ -187,7 +187,7 @@ if __name__ == '__main__':
 
 				# print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
 
-				text_to_speech_yolo(boxes, confidences, classids, idxs, labels)
+				# text_to_speech_yolo(boxes, confidences, classids, idxs, labels)
 
     			# save to file
 				cv.imwrite(image_path, frame)

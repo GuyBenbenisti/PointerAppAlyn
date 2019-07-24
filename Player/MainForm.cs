@@ -90,13 +90,13 @@ namespace UI
 
         internal void onDetection(double x, double y)
         {
-            double ratio = OS.GetScalingFactor(Handle);
-            Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
-
-            var pt = this.PointToClient(new Point((int)x, (int)y));
-
                 Action action = () =>
                 {
+                    double ratio = OS.GetScalingFactor(Handle);
+                    Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+
+                    var pt = this.PointToClient(new Point((int)x, (int)y));
+
                     if (Bounds.Contains(pt))
                     {
                         panelDetectionFrame.Location = gazeLocation;
@@ -119,7 +119,7 @@ namespace UI
         {
             try
             {
-                string path = @"C:\Users\t-gubenb\Desktop\Test";
+                string path = @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\FrameDir\";
                 //var imageStream = Image.FromStream(ms);
                 //imageStream.Save(outStream, ImageFormat.Jpeg);
                 System.Drawing.Image imgSave = System.Drawing.Image.FromStream(ms);
@@ -129,7 +129,7 @@ namespace UI
                 Graphics grSave = Graphics.FromImage(bmTemp);
                 grSave.DrawImage(imgSave, 0, 0, imgSave.Width, imgSave.Height);
 
-                bmTemp.Save(path + "\\" + "TobiiCapture" + ".jpg");
+                bmTemp.Save(path + "\\" + "image" + ".jpeg");
                 imgSave.Dispose();
                 bmSave.Dispose();
                 bmTemp.Dispose();
@@ -149,7 +149,7 @@ namespace UI
                 Bitmap varBmp = videoSourcePlayer.GetCurrentVideoFrame();
                 varBmp.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 varBmp.Dispose();
-                memoryStream.Seek(0);
+                memoryStream.Seek(0L, SeekOrigin.Begin);
                 return memoryStream;
                 //varBmp.Save(@"C:\a.png", ImageFormat.Png);
             }
@@ -158,7 +158,8 @@ namespace UI
 
         internal void tryToDetect(MemoryStream i_MS)
         {
-            m_Detector.Detect(i_MS);
+            m_Detector.DetectFromImagePath();
+            // m_Detector.Detect(i_MS);
         }
 
         // Open video file using DirectShow

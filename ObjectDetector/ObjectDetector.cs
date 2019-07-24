@@ -2,6 +2,7 @@
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using System.IO;
 using System.Threading.Tasks;
+using YoloPipe.Harness;
 
 namespace UI
 {
@@ -10,6 +11,11 @@ namespace UI
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string m_SubscriptionKey = "f00b15e35dc54148aed210c0611136f5";
 
+        public async void DetectFromImagePath()
+        {
+            // Change path inside Harness.TestYoloJsonPipe
+            await Harness.TestYoloJsonPipe();
+        }
         public async void Detect(MemoryStream i_MS)
         {
             ComputerVisionClient computerVision = new ComputerVisionClient(
@@ -20,12 +26,18 @@ namespace UI
             computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             string localImagePath = @"C:\Users\t-gubenb\Desktop\Test\TobiiCapture.jpg";
-            using(Stream imagestream = i_MS)
-            {
-               var analysis = AnalyzeLocalAsync(computerVision, localImagePath);
-            }
+            var analysis = AnalyzeLocalAsyncFromMemoryStream(computerVision, i_MS);
         }
 
+        private static async Task AnalyzeLocalAsyncFromMemoryStream(
+            ComputerVisionClient computerVision, MemoryStream i_MS)
+        {
+                DetectResult analysis = await computerVision.DetectObjectsInStreamAsync(i_MS);
+                foreach (DetectedObject obj in analysis.Objects)
+                {
+                    //Console.WriteLine("ObjectProperty: {0}, Confidence: {1},", obj.ObjectProperty, obj.Confidence);
+                }
+        }
         private static async Task AnalyzeLocalAsync(
             ComputerVisionClient computerVision, string imagePath)
         {
