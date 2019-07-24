@@ -6,7 +6,7 @@ import time
 import os
 from yolo_utils import infer_image, show_image, print_json_to_terminal, infer_image_azure, text_to_speech_yolo
 import json
-from demo_cfg import image_path
+from demo_cfg import image_path, speech_language
 
 import requests
 from PIL import Image
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 			frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 								height, width, img, colors, labels, FLAGS)
 
-			text_to_speech_yolo(boxes, confidences, classids, idxs, labels)
+			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language)
 
 	elif FLAGS.video_path:
 		# Read the video
@@ -187,7 +187,7 @@ if __name__ == '__main__':
 
 				# print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
 
-				text_to_speech_yolo(boxes, confidences, classids, idxs, labels)
+				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language)
 
     			# save to file
 				cv.imwrite(image_path, frame)

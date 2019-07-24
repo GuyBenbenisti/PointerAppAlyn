@@ -8,6 +8,12 @@ import json
 import requests
 from PIL import Image
 import pyttsx3
+import playsound
+# from pygame import mixer
+# from pydub import AudioSegment
+# from pydub.playback import play
+# import vlc
+import os
 
 
 def infer_image_azure(temp_path, frame):
@@ -45,7 +51,7 @@ def infer_image_azure(temp_path, frame):
     return analysis
 
 
-def text_to_speech_yolo(boxes, confidences, classids, idxs, labels):
+def text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language):
     if len(classids) > 0:
         predicted_labels = [labels[ii] for ii in classids]
         min_box = boxes[0][2]*boxes[0][3]
@@ -55,9 +61,11 @@ def text_to_speech_yolo(boxes, confidences, classids, idxs, labels):
             if (box_array[2]*box_array[3]) < min_box:
                 object_to_speech_module = predicted_labels[box_id]
         print("smallest object in captured frame: " + object_to_speech_module)
-        engine = pyttsx3.init()
-        engine.say(object_to_speech_module)
-        engine.runAndWait()
+
+        tts_folder = r"C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/sound_files/tts/TTS_" + speech_language
+        tts_file = os.path.join(tts_folder, object_to_speech_module + ".wav")
+        print(tts_file)
+        playsound.playsound(tts_file)
 
 
 def show_image(img):
