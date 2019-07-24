@@ -8,17 +8,19 @@ using Tobii.Interaction.Framework;
 
 namespace TobiiAgent
 {
-    public class TobiiAgent
+    public class TobiiAgentAnalyzer : IAgentAnalyzer
     {
-        private readonly double m_FixationThreshold = 3; // Threshold for the kids gaze time before sending the object to the manager for recognition.
+        private readonly double m_FixationThreshold = 2; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
+        //private bool m_FixationBeginWithoutEnd;
         private Host m_host;
         private FixationDataStream m_Stream;
-        public TobiiAgent(object host)
+        public TobiiAgentAnalyzer(object host)
         {
+            //m_FixationBeginWithoutEnd = false;
             m_SentForRecognition = false;
             this.m_host = new Host();
-            m_Stream = m_host.Streams.CreateFixationDataStream(FixationDataMode.Slow, true);
+            m_Stream = m_host.Streams.CreateFixationDataStream(FixationDataMode.Sensitive, true);
         }
 
         // This method registers the callbacks for fixation begin, during, and end.
@@ -31,7 +33,7 @@ namespace TobiiAgent
             var fixationBeginTime = 0d;
 
             // On fixation begin
-            m_Stream.Next += (o, fixation) => 
+            m_Stream.Next += (o, fixation) =>
             {
                 // On the Next event, data comes as FixationData objects, wrapped in a StreamData<T> object.
                 var fixationPointX = fixation.Data.X;
@@ -40,18 +42,24 @@ namespace TobiiAgent
                 switch (fixation.Data.EventType)
                 {
                     case FixationDataEventType.Begin:
+                        //if (!m_FixationBeginWithoutEnd)
+                        //{
                         fixationBeginTime = fixation.Data.Timestamp;
+                        //    m_FixationBeginWithoutEnd = true;
+                        //}
                         break;
 
                     case FixationDataEventType.Data:
                         if (!m_SentForRecognition && ((fixation.Data.Timestamp - fixationBeginTime) / 1000) >= m_FixationThreshold)
                         {
+                            //m_FixationBeginWithoutEnd = false;
                             i_RecognizeMethod.Invoke(fixationPointX, fixationPointY);
                             m_SentForRecognition = true;
                         }
                         break;
 
                     case FixationDataEventType.End:
+                        //m_FixationBeginWithoutEnd = false;
                         m_SentForRecognition = false;
                         break;
 
