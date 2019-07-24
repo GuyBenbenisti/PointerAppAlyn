@@ -19,11 +19,13 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using TobiiAgent;
 using UI;
+using Tobii.Interaction;
 
 namespace UI
 {
     public partial class MainForm : Form
     {
+        private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
         private Stopwatch stopWatch = null;
         private TobiiAgentAnalyzer _agent;
 
@@ -31,6 +33,7 @@ namespace UI
         public MainForm()
         {
             InitializeComponent();
+            m_Agent.StartWatching(this.onDetection);
         }
 
         private void DetectionOccurred(double x, double y)
@@ -74,12 +77,12 @@ namespace UI
         private void localVideoCaptureDeviceToolStripMenuItem_Start()
         {
             VideoCaptureDeviceForm form = new VideoCaptureDeviceForm();
-            form.CaptureSize = new Size(1280, 720);
+            form.CaptureSize = new System.Drawing.Size(1280, 720);
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 // create video source
-                form.CaptureSize = new Size(1280, 720);
+                form.CaptureSize = new System.Drawing.Size(1280, 720);
                 VideoCaptureDevice videoSource = form.VideoDevice;
 
                 // open it
@@ -91,17 +94,30 @@ namespace UI
         private void localVideoCaptureDeviceToolStripMenuItem_Click( object sender, EventArgs e )
         {
             VideoCaptureDeviceForm form = new VideoCaptureDeviceForm( );
-            form.CaptureSize = new Size(1280, 720);
+            form.CaptureSize = new System.Drawing.Size(1280, 720);
             
             if ( form.ShowDialog( this ) == DialogResult.OK )
             {
                 // create video source
-                form.CaptureSize = new Size(1280, 720);
+                form.CaptureSize = new System.Drawing.Size(1280, 720);
                 VideoCaptureDevice videoSource = form.VideoDevice;
 
                 // open it
                 OpenVideoSource( videoSource );
             }
+        }
+
+        internal void onDetection(double x, double y)
+        {
+            double ratio = Player.Graphics.getScalingFactor();
+            Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+            Action action = () =>
+            {
+                panelDetectionFrame.Visible = true;
+                panelDetectionFrame.Location = gazeLocation;
+            };
+
+            this.Invoke(action);
         }
 
         // Open video file using DirectShow
@@ -182,9 +198,6 @@ namespace UI
             // reset stop watch
             stopWatch = null;
 
-            // start timer
-            timer.Start( );
-
             this.Cursor = Cursors.Default;
         }
 
@@ -245,9 +258,6 @@ namespace UI
                 {
                     stopWatch.Stop( );
 
-                    float fps = 1000.0f * framesReceived / stopWatch.ElapsedMilliseconds;
-                    fpsLabel.Text = fps.ToString( "F2" ) + " fps";
-
                     stopWatch.Reset( );
                     stopWatch.Start( );
                 }
@@ -259,12 +269,22 @@ namespace UI
 
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buttonStopTobii_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void labelIWantThis_Click(object sender, EventArgs e)
+        private void buttonIWhatsThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWantThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWhoIsThis_Click(object sender, EventArgs e)
         {
 
         }
