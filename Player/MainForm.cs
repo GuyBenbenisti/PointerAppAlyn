@@ -149,6 +149,7 @@ namespace UI
                 Bitmap varBmp = videoSourcePlayer.GetCurrentVideoFrame();
                 varBmp.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Jpeg);
                 varBmp.Dispose();
+                memoryStream.Seek(0);
                 return memoryStream;
                 //varBmp.Save(@"C:\a.png", ImageFormat.Png);
             }
