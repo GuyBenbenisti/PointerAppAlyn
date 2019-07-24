@@ -51,21 +51,35 @@ def infer_image_azure(temp_path, frame):
     return analysis
 
 
-def text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language):
+def text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, img, FLAGS):
+    height, width = img.shape[:2]
     if len(classids) > 0:
         predicted_labels = [labels[ii] for ii in classids]
         min_box = boxes[0][2]*boxes[0][3]
         object_to_speech_module = predicted_labels[0]
+        object_valid_flag = False
         for (box_id, box_array) in enumerate(boxes):
-            # print(box_array)
-            if (box_array[2]*box_array[3]) < min_box:
-                object_to_speech_module = predicted_labels[box_id]
-        print("smallest object in captured frame: " + object_to_speech_module)
+            curr_x_min = box_array[0] # orig x
+            curr_y_min = box_array[1] # orig y
+            curr_x_max = box_array[0] + box_array[2]
+            curr_y_max = box_array[1]  + box_array[3]
+            if FLAGS.tobii_x_pos == -999:
+                tobii_x_y_flag = True
+            else:              
+                tobii_x_y_flag = ((FLAGS.tobii_x_pos * width >= curr_x_min and FLAGS.tobii_x_pos * width <= curr_x_max) and (FLAGS.tobii_y_pos * height >= curr_y_min and FLAGS.tobii_y_pos * height <= curr_y_max))
+            if tobii_x_y_flag:
+                if (box_array[2]*box_array[3]) <= min_box:
+                    object_to_speech_module = predicted_labels[box_id]
+                    object_valid_flag = True
+        # print("smallest object in captured frame: " + object_to_speech_module)
 
-        tts_folder = r"C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/sound_files/tts/TTS_" + speech_language
-        tts_file = os.path.join(tts_folder, object_to_speech_module + ".wav")
-        print(tts_file)
-        playsound.playsound(tts_file)
+        if (object_valid_flag):
+            tts_folder = r"C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/sound_files/tts/TTS_" + speech_language
+            tts_file = os.path.join(tts_folder, object_to_speech_module + ".wav")
+            # print(tts_file)
+            playsound.playsound(tts_file)
+
+        print('python_cycle_finished')
 
 
 def show_image(img):
