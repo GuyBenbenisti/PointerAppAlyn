@@ -173,9 +173,6 @@ namespace UI
             // reset stop watch
             stopWatch = null;
 
-            // start timer
-            timer.Start( );
-
             this.Cursor = Cursors.Default;
         }
 
@@ -236,9 +233,6 @@ namespace UI
                 {
                     stopWatch.Stop( );
 
-                    float fps = 1000.0f * framesReceived / stopWatch.ElapsedMilliseconds;
-                    fpsLabel.Text = fps.ToString( "F2" ) + " fps";
-
                     stopWatch.Reset( );
                     stopWatch.Start( );
                 }
@@ -250,12 +244,22 @@ namespace UI
 
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buttonStopTobii_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void labelIWantThis_Click(object sender, EventArgs e)
+        private void buttonIWhatsThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWantThis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWhoIsThis_Click(object sender, EventArgs e)
         {
 
         }
