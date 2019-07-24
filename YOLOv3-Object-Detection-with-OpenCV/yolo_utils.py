@@ -7,6 +7,7 @@ import os
 import json
 import requests
 from PIL import Image
+import pyttsx3
 
 
 def infer_image_azure(temp_path, frame):
@@ -31,12 +32,32 @@ def infer_image_azure(temp_path, frame):
     analysis = response.json()
     print(json.dumps(response.json()))
     for i in range(len(analysis["objects"])):
-        print("object" + str(i) + ": " + analysis["objects"][i]["object"])
+        1
+        # print("object" + str(i) + ": " + analysis["objects"][i]["object"])
+        # if i == 0:
+        #     engine = pyttsx3.init()
+        #     engine.say(analysis["objects"][i]["object"])
+        #     engine.runAndWait()
 
     with open(temp_path + 'data.json', 'w') as f:
         json.dump(analysis, f)
 
     return analysis
+
+
+def text_to_speech_yolo(boxes, confidences, classids, idxs, labels):
+    if len(classids) > 0:
+        predicted_labels = [labels[ii] for ii in classids]
+        min_box = boxes[0][2]*boxes[0][3]
+        object_to_speech_module = predicted_labels[0]
+        for (box_id, box_array) in enumerate(boxes):
+            # print(box_array)
+            if (box_array[2]*box_array[3]) < min_box:
+                object_to_speech_module = predicted_labels[box_id]
+        print("smallest object in captured frame: " + object_to_speech_module)
+        engine = pyttsx3.init()
+        engine.say(object_to_speech_module)
+        engine.runAndWait()
 
 
 def show_image(img):
