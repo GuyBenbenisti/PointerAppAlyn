@@ -179,6 +179,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{462b50fc-50ba-4738-869e-dc6234fbd510}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TobiiAgent\TobiiAgent.csproj">
       <Project>{9c8933a3-2caa-477b-a08b-41507683cfe7}</Project>
       <Name>TobiiAgent</Name>

@@ -8,7 +8,7 @@ using Tobii.Interaction.Framework;
 
 namespace TobiiAgent
 {
-    public class TobiiAgentAnalyzer
+    public class TobiiAgentAnalyzer : IAgentAnalyzer
     {
         private readonly double m_FixationThreshold = 3; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
@@ -33,7 +33,7 @@ namespace TobiiAgent
             var fixationBeginTime = 0d;
 
             // On fixation begin
-            m_Stream.Next += (o, fixation) => 
+            m_Stream.Next += (o, fixation) =>
             {
                 // On the Next event, data comes as FixationData objects, wrapped in a StreamData<T> object.
                 var fixationPointX = fixation.Data.X;
@@ -44,7 +44,7 @@ namespace TobiiAgent
                     case FixationDataEventType.Begin:
                         //if (!m_FixationBeginWithoutEnd)
                         //{
-                            fixationBeginTime = fixation.Data.Timestamp;
+                        fixationBeginTime = fixation.Data.Timestamp;
                         //    m_FixationBeginWithoutEnd = true;
                         //}
                         break;

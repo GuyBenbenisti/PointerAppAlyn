@@ -25,9 +25,8 @@ namespace UI
 {
     public partial class MainForm : Form
     {
-        private TobiiAgentAnalyzer m_Agent;
+        private IAgentAnalyzer m_Agent;
         private Stopwatch stopWatch = null;
-        private TobiiAgentAnalyzer _agent;
 
         // Class constructor
         public MainForm()
@@ -44,6 +43,7 @@ namespace UI
         {
             localVideoCaptureDeviceToolStripMenuItem_Start();
             m_Agent = new TobiiAgentAnalyzer(new Host());
+            //m_Agent = new MockAgentAnalyzer();
             m_Agent.StartWatching(this.onDetection);
         }
 
@@ -88,20 +88,25 @@ namespace UI
 
         internal void onDetection(double x, double y)
         {
-            double ratio = Player.Graphics.getScalingFactor();
+            double ratio = OS.GetScalingFactor(Handle);
             Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
 
-            //var pt = this.PointToClient(new Point((int)x, (int)y));
+            var pt = this.PointToClient(new Point((int)x, (int)y));
 
-            //if (Bounds.Contains(pt))
+                Action action = () =>
+                {
+                    if (Bounds.Contains(pt))
+                    {
+                        panelDetectionFrame.Location = gazeLocation;
+                        panelDetectionFrame.Visible = true;
+                    }
+                    else
+                    {
+                        panelDetectionFrame.Visible = false;
+                    }
+                };
 
-            Action action = () =>
-            {
-                panelDetectionFrame.Visible = true;
-                panelDetectionFrame.Location = gazeLocation;
-            };
-
-            this.Invoke(action);
+                this.Invoke(action);
         }
 
         // Open video file using DirectShow
