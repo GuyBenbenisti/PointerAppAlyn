@@ -16,7 +16,7 @@ namespace Manager
         [STAThread]
         public static void Main()
         {
-
+            Manager manager = new Manager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

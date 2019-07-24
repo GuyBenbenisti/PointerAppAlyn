@@ -12,12 +12,12 @@ namespace TobiiAgent
     {
         private readonly double m_FixationThreshold = 3; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
-        private bool m_FixationBeginWithoutEnd;
+        //private bool m_FixationBeginWithoutEnd;
         private Host m_host;
         private FixationDataStream m_Stream;
         public TobiiAgentAnalyzer(object host)
         {
-            m_FixationBeginWithoutEnd = false;
+            //m_FixationBeginWithoutEnd = false;
             m_SentForRecognition = false;
             this.m_host = new Host();
             m_Stream = m_host.Streams.CreateFixationDataStream(FixationDataMode.Sensitive, true);
@@ -59,7 +59,7 @@ namespace TobiiAgent
                         break;
 
                     case FixationDataEventType.End:
-                        m_FixationBeginWithoutEnd = false;
+                        //m_FixationBeginWithoutEnd = false;
                         m_SentForRecognition = false;
                         break;
 
