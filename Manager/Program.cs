@@ -18,7 +18,7 @@ namespace Manager
         public static void Main()
         {
             //Manager manager = new Manager();
-            
+
             //Harness.TestYoloJsonPipe();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

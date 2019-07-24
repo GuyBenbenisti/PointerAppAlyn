@@ -10,7 +10,7 @@ namespace TobiiAgent
 {
     public class TobiiAgentAnalyzer : IAgentAnalyzer
     {
-        private readonly double m_FixationThreshold = 3; // Threshold for the kids gaze time before sending the object to the manager for recognition.
+        private readonly double m_FixationThreshold = 2; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
         //private bool m_FixationBeginWithoutEnd;
         private Host m_host;

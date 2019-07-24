@@ -24,7 +24,7 @@ namespace YoloPipe
             _workingFolder = workingFolder;
         }
 
-        public void Start()
+        public async void Start()
         {
             var pi = new ProcessStartInfo(_exeName, _arguments);
             pi.WorkingDirectory = _workingFolder;
@@ -34,6 +34,8 @@ namespace YoloPipe
             _process = Process.Start(pi);
             _process.Exited += Process_Exited;
             _reader = _process.StandardOutput;
+            /*_reader.ReadLine()*/;
+            Debug.WriteLine(_reader.ReadLine());
         }
 
         private void Process_Exited(object sender, EventArgs e)
