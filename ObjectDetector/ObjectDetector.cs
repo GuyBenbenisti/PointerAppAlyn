@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using YoloPipe.Harness;
@@ -8,13 +9,15 @@ namespace UI
 {
     public class ObjectDetector
     {
+        public float PointX { get; set; }
+        public float PointY { get; set; }
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string m_SubscriptionKey = "f00b15e35dc54148aed210c0611136f5";
 
         public async void DetectFromImagePath()
         {
             // Change path inside Harness.TestYoloJsonPipe
-            await Harness.TestYoloJsonPipe();
+            await Harness.TestYoloJsonPipe(PointX, PointY);
         }
         public async void Detect(MemoryStream i_MS)
         {

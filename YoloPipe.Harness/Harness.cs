@@ -17,9 +17,12 @@ namespace YoloPipe.Harness
         //    Console.ReadLine();
         //}
 
-        public static async Task TestYoloJsonPipe()
+        public static async Task TestYoloJsonPipe(double i_X, double i_Y)
         {
-            var pipe = new YoloJsonPipe("cmd.exe", @"/c C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\Scripts\activate.bat C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3 & C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\python.exe -u C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\yolo.py -i C:\Users\t-gubenb\source\repos\PointerAppAlyn\FrameDir\image.jpeg", @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\");
+            var exe = "cmd.exe";
+            var dir = @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\";
+            var args = String.Format(@"/c C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\Scripts\activate.bat C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3 & C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\python.exe -u C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\yolo.py -i C:\Users\t-gubenb\source\repos\PointerAppAlyn\FrameDir\image.jpeg -x {0} -y {1}", i_X, i_Y);
+            var pipe = new YoloJsonPipe("cmd.exe", args, dir);
             //var pipe = new YoloJsonPipe("cmd.exe", @"/c C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\Scripts\activate.bat C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3 & C:\Users\t-gubenb\AppData\Local\Continuum\anaconda3\python.exe -u C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\yolo.py", @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\");
             //var pipe = new YoloJsonPipe(@"C:\Users\shaharp\AppData\Local\Continuum\anaconda3\python.exe", @"c:/src/hackathon/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/yolo.py", @"c:\src\hackathon\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\");
             //var pipe = new YoloJsonPipe(@"cmd.exe", @"/c type c:\temp\sim.txt", null);

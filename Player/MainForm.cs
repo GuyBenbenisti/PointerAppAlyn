@@ -97,7 +97,11 @@ namespace UI
                     double ratio = OS.GetScalingFactor(Handle);
                     Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
 
-                    var pt = this.PointToClient(new Point((int)x, (int)y));
+                    var pt = this.videoSourcePlayer.PointToClient(gazeLocation);
+                    float normalizeX = pt.X / (float)videoSourcePlayer.Width;
+                    float normalizeY = pt.Y / (float)videoSourcePlayer.Height;
+                    m_Detector.PointX = normalizeX;
+                    m_Detector.PointY = normalizeY;
 
                     Button focusedButton = this.DescendentsFromPoint(pt).OfType<Button>().LastOrDefault();
                     if (focusedButton != null)
@@ -115,7 +119,7 @@ namespace UI
                     }
                 };
 
-                this.Invoke(action);
+            this.Invoke(action);
 
             MemoryStream frame_MS = CaptureSnapshot();
             saveImageLocally(frame_MS);
