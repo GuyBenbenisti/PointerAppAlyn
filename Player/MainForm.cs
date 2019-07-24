@@ -16,6 +16,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using TobiiAgent;
+using UI;
 using Tobii.Interaction;
 using System.IO;
 
@@ -23,7 +25,7 @@ namespace UI
 {
     public partial class MainForm : Form
     {
-        private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
+        private TobiiAgentAnalyzer m_Agent;
         private Stopwatch stopWatch = null;
         ObjectDetector m_Detector;
 
@@ -43,8 +45,10 @@ namespace UI
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             localVideoCaptureDeviceToolStripMenuItem_Start();
-
+            m_Agent = new TobiiAgentAnalyzer(new Host());
+            m_Agent.StartWatching(this.onDetection);
         }
+
         // "Exit" menu item clicked
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,6 +92,11 @@ namespace UI
         {
             double ratio = Player.Graphics.getScalingFactor();
             Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+
+            //var pt = this.PointToClient(new Point((int)x, (int)y));
+
+            //if (Bounds.Contains(pt))
+
             Action action = () =>
             {
                 panelDetectionFrame.Visible = true;
