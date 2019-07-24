@@ -17,17 +17,20 @@ using System.Diagnostics;
 
 using AForge.Video;
 using AForge.Video.DirectShow;
+using Tobii.Interaction;
 
 namespace UI
 {
     public partial class MainForm : Form
     {
+        private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
         private Stopwatch stopWatch = null;
 
         // Class constructor
         public MainForm()
         {
             InitializeComponent();
+            m_Agent.StartWatching(this.detected);
         }
 
         private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -49,12 +52,12 @@ namespace UI
         private void localVideoCaptureDeviceToolStripMenuItem_Start()
         {
             VideoCaptureDeviceForm form = new VideoCaptureDeviceForm();
-            form.CaptureSize = new Size(1280, 720);
+            form.CaptureSize = new System.Drawing.Size(1280, 720);
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 // create video source
-                form.CaptureSize = new Size(1280, 720);
+                form.CaptureSize = new System.Drawing.Size(1280, 720);
                 VideoCaptureDevice videoSource = form.VideoDevice;
 
                 // open it
@@ -66,17 +69,30 @@ namespace UI
         private void localVideoCaptureDeviceToolStripMenuItem_Click( object sender, EventArgs e )
         {
             VideoCaptureDeviceForm form = new VideoCaptureDeviceForm( );
-            form.CaptureSize = new Size(1280, 720);
+            form.CaptureSize = new System.Drawing.Size(1280, 720);
             
             if ( form.ShowDialog( this ) == DialogResult.OK )
             {
                 // create video source
-                form.CaptureSize = new Size(1280, 720);
+                form.CaptureSize = new System.Drawing.Size(1280, 720);
                 VideoCaptureDevice videoSource = form.VideoDevice;
 
                 // open it
                 OpenVideoSource( videoSource );
             }
+        }
+
+        internal void onDetection(double x, double y)
+        {
+            double ratio = Player.Graphics.getScalingFactor();
+            Point gazeLocation = new Point((int)(x / ratio), (int)(y / ratio));
+            Action action = () =>
+            {
+                panelDetectionFrame.Visible = true;
+                panelDetectionFrame.Location = gazeLocation;
+            };
+
+            this.Invoke(action);
         }
 
         // Open video file using DirectShow

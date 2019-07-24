@@ -57,6 +57,7 @@ namespace UI
             this.videoSourcePlayer = new AForge.Controls.VideoSourcePlayer();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panelDetectionFrame = new System.Windows.Forms.Panel();
             this.statusStrip.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.flowLayoutStop.SuspendLayout();
@@ -96,16 +97,17 @@ namespace UI
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fpsLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 576);
+            this.statusStrip.Location = new System.Drawing.Point(0, 898);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1277, 22);
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1916, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip1";
             // 
             // fpsLabel
             // 
             this.fpsLabel.Name = "fpsLabel";
-            this.fpsLabel.Size = new System.Drawing.Size(1262, 17);
+            this.fpsLabel.Size = new System.Drawing.Size(1893, 17);
             this.fpsLabel.Spring = true;
             this.fpsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -114,6 +116,7 @@ namespace UI
             this.mainPanel.AutoSize = true;
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.mainPanel.Controls.Add(this.panelDetectionFrame);
             this.mainPanel.Controls.Add(this.flowLayoutStop);
             this.mainPanel.Controls.Add(this.flowLayoutTake);
             this.mainPanel.Controls.Add(this.flowLayoutWho);
@@ -122,8 +125,9 @@ namespace UI
             this.mainPanel.Controls.Add(this.videoSourcePlayer);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1277, 576);
+            this.mainPanel.Size = new System.Drawing.Size(1916, 898);
             this.mainPanel.TabIndex = 2;
             // 
             // flowLayoutStop
@@ -133,10 +137,11 @@ namespace UI
             this.flowLayoutStop.Controls.Add(this.button1);
             this.flowLayoutStop.Controls.Add(this.label1);
             this.flowLayoutStop.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutStop.Location = new System.Drawing.Point(586, 0);
+            this.flowLayoutStop.Location = new System.Drawing.Point(879, 0);
+            this.flowLayoutStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutStop.Name = "flowLayoutStop";
             this.flowLayoutStop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutStop.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutStop.Size = new System.Drawing.Size(150, 154);
             this.flowLayoutStop.TabIndex = 11;
             // 
             // button1
@@ -147,10 +152,9 @@ namespace UI
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(-3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 58);
+            this.button1.Size = new System.Drawing.Size(150, 89);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -158,10 +162,9 @@ namespace UI
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(-2, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(-3, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 19);
+            this.label1.Size = new System.Drawing.Size(150, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "עצור";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,9 +176,10 @@ namespace UI
             this.flowLayoutTake.Controls.Add(this.buttonTakeMeThere);
             this.flowLayoutTake.Controls.Add(this.labelTakeMeThere);
             this.flowLayoutTake.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutTake.Location = new System.Drawing.Point(1177, 426);
+            this.flowLayoutTake.Location = new System.Drawing.Point(1766, 667);
+            this.flowLayoutTake.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutTake.Name = "flowLayoutTake";
-            this.flowLayoutTake.Size = new System.Drawing.Size(100, 150);
+            this.flowLayoutTake.Size = new System.Drawing.Size(150, 231);
             this.flowLayoutTake.TabIndex = 11;
             // 
             // buttonTakeMeThere
@@ -187,10 +191,9 @@ namespace UI
             this.buttonTakeMeThere.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTakeMeThere.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonTakeMeThere.Location = new System.Drawing.Point(2, 2);
-            this.buttonTakeMeThere.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonTakeMeThere.Location = new System.Drawing.Point(3, 3);
             this.buttonTakeMeThere.Name = "buttonTakeMeThere";
-            this.buttonTakeMeThere.Size = new System.Drawing.Size(99, 100);
+            this.buttonTakeMeThere.Size = new System.Drawing.Size(148, 154);
             this.buttonTakeMeThere.TabIndex = 8;
             this.buttonTakeMeThere.UseVisualStyleBackColor = false;
             this.buttonTakeMeThere.Click += new System.EventHandler(this.buttonTakeMeThere_Click);
@@ -199,10 +202,9 @@ namespace UI
             // 
             this.labelTakeMeThere.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTakeMeThere.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelTakeMeThere.Location = new System.Drawing.Point(2, 104);
-            this.labelTakeMeThere.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTakeMeThere.Location = new System.Drawing.Point(3, 160);
             this.labelTakeMeThere.Name = "labelTakeMeThere";
-            this.labelTakeMeThere.Size = new System.Drawing.Size(99, 19);
+            this.labelTakeMeThere.Size = new System.Drawing.Size(148, 29);
             this.labelTakeMeThere.TabIndex = 9;
             this.labelTakeMeThere.Text = "לשם";
             this.labelTakeMeThere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -214,10 +216,11 @@ namespace UI
             this.flowLayoutWho.Controls.Add(this.buttonWhoIsThis);
             this.flowLayoutWho.Controls.Add(this.labelWhoIsThis);
             this.flowLayoutWho.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutWho.Location = new System.Drawing.Point(1174, 0);
+            this.flowLayoutWho.Location = new System.Drawing.Point(1761, 0);
+            this.flowLayoutWho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutWho.Name = "flowLayoutWho";
             this.flowLayoutWho.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutWho.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutWho.Size = new System.Drawing.Size(150, 154);
             this.flowLayoutWho.TabIndex = 10;
             // 
             // buttonWhoIsThis
@@ -228,10 +231,9 @@ namespace UI
             this.buttonWhoIsThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWhoIsThis.ForeColor = System.Drawing.Color.White;
-            this.buttonWhoIsThis.Location = new System.Drawing.Point(-2, 2);
-            this.buttonWhoIsThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonWhoIsThis.Location = new System.Drawing.Point(-3, 3);
             this.buttonWhoIsThis.Name = "buttonWhoIsThis";
-            this.buttonWhoIsThis.Size = new System.Drawing.Size(100, 58);
+            this.buttonWhoIsThis.Size = new System.Drawing.Size(150, 89);
             this.buttonWhoIsThis.TabIndex = 4;
             this.buttonWhoIsThis.UseVisualStyleBackColor = true;
             // 
@@ -239,10 +241,9 @@ namespace UI
             // 
             this.labelWhoIsThis.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelWhoIsThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelWhoIsThis.Location = new System.Drawing.Point(-2, 62);
-            this.labelWhoIsThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWhoIsThis.Location = new System.Drawing.Point(-3, 95);
             this.labelWhoIsThis.Name = "labelWhoIsThis";
-            this.labelWhoIsThis.Size = new System.Drawing.Size(100, 19);
+            this.labelWhoIsThis.Size = new System.Drawing.Size(150, 29);
             this.labelWhoIsThis.TabIndex = 5;
             this.labelWhoIsThis.Text = "מי זה?";
             this.labelWhoIsThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -254,9 +255,10 @@ namespace UI
             this.flowLayoutWantThis.Controls.Add(this.buttonWantThis);
             this.flowLayoutWantThis.Controls.Add(this.labelWantThis);
             this.flowLayoutWantThis.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 469);
+            this.flowLayoutWantThis.Location = new System.Drawing.Point(0, 734);
+            this.flowLayoutWantThis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutWantThis.Name = "flowLayoutWantThis";
-            this.flowLayoutWantThis.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutWantThis.Size = new System.Drawing.Size(150, 154);
             this.flowLayoutWantThis.TabIndex = 9;
             // 
             // buttonWantThis
@@ -267,10 +269,9 @@ namespace UI
             this.buttonWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWantThis.ForeColor = System.Drawing.Color.White;
-            this.buttonWantThis.Location = new System.Drawing.Point(2, 2);
-            this.buttonWantThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonWantThis.Location = new System.Drawing.Point(3, 3);
             this.buttonWantThis.Name = "buttonWantThis";
-            this.buttonWantThis.Size = new System.Drawing.Size(99, 58);
+            this.buttonWantThis.Size = new System.Drawing.Size(148, 89);
             this.buttonWantThis.TabIndex = 6;
             this.buttonWantThis.UseVisualStyleBackColor = false;
             // 
@@ -278,10 +279,9 @@ namespace UI
             // 
             this.labelWantThis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelWantThis.Location = new System.Drawing.Point(2, 62);
-            this.labelWantThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWantThis.Location = new System.Drawing.Point(3, 95);
             this.labelWantThis.Name = "labelWantThis";
-            this.labelWantThis.Size = new System.Drawing.Size(99, 19);
+            this.labelWantThis.Size = new System.Drawing.Size(148, 29);
             this.labelWantThis.TabIndex = 7;
             this.labelWantThis.Text = "רוצה";
             this.labelWantThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,9 +294,10 @@ namespace UI
             this.flowLayoutWhatsThis.Controls.Add(this.labelIWantThis);
             this.flowLayoutWhatsThis.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutWhatsThis.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutWhatsThis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutWhatsThis.Name = "flowLayoutWhatsThis";
             this.flowLayoutWhatsThis.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutWhatsThis.Size = new System.Drawing.Size(100, 100);
+            this.flowLayoutWhatsThis.Size = new System.Drawing.Size(150, 154);
             this.flowLayoutWhatsThis.TabIndex = 8;
             // 
             // buttonIWantThis
@@ -307,10 +308,9 @@ namespace UI
             this.buttonIWantThis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIWantThis.ForeColor = System.Drawing.Color.White;
-            this.buttonIWantThis.Location = new System.Drawing.Point(-1, 2);
-            this.buttonIWantThis.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonIWantThis.Location = new System.Drawing.Point(-1, 3);
             this.buttonIWantThis.Name = "buttonIWantThis";
-            this.buttonIWantThis.Size = new System.Drawing.Size(99, 58);
+            this.buttonIWantThis.Size = new System.Drawing.Size(148, 89);
             this.buttonIWantThis.TabIndex = 6;
             this.buttonIWantThis.UseVisualStyleBackColor = true;
             // 
@@ -318,10 +318,9 @@ namespace UI
             // 
             this.labelIWantThis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIWantThis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelIWantThis.Location = new System.Drawing.Point(-1, 62);
-            this.labelIWantThis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelIWantThis.Location = new System.Drawing.Point(-1, 95);
             this.labelIWantThis.Name = "labelIWantThis";
-            this.labelIWantThis.Size = new System.Drawing.Size(99, 19);
+            this.labelIWantThis.Size = new System.Drawing.Size(148, 29);
             this.labelIWantThis.TabIndex = 7;
             this.labelIWantThis.Text = "מה זה?";
             this.labelIWantThis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -334,9 +333,9 @@ namespace UI
             this.videoSourcePlayer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.videoSourcePlayer.ForeColor = System.Drawing.Color.White;
             this.videoSourcePlayer.Location = new System.Drawing.Point(0, 0);
-            this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(10);
+            this.videoSourcePlayer.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.videoSourcePlayer.Name = "videoSourcePlayer";
-            this.videoSourcePlayer.Size = new System.Drawing.Size(1277, 576);
+            this.videoSourcePlayer.Size = new System.Drawing.Size(1916, 898);
             this.videoSourcePlayer.TabIndex = 0;
             this.videoSourcePlayer.VideoSource = null;
             this.videoSourcePlayer.NewFrame += new AForge.Controls.VideoSourcePlayer.NewFrameHandler(this.videoSourcePlayer_NewFrame);
@@ -351,14 +350,24 @@ namespace UI
             this.openFileDialog.Filter = "AVI files (*.avi)|*.avi|All files (*.*)|*.*";
             this.openFileDialog.Title = "Opem movie";
             // 
+            // panelDetectionFrame
+            // 
+            this.panelDetectionFrame.BackColor = System.Drawing.Color.Lime;
+            this.panelDetectionFrame.Location = new System.Drawing.Point(263, 137);
+            this.panelDetectionFrame.Name = "panelDetectionFrame";
+            this.panelDetectionFrame.Size = new System.Drawing.Size(35, 35);
+            this.panelDetectionFrame.TabIndex = 12;
+            this.panelDetectionFrame.Visible = false;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1277, 598);
+            this.ClientSize = new System.Drawing.Size(1916, 920);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.statusStrip);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -408,5 +417,6 @@ namespace UI
         private System.Windows.Forms.FlowLayoutPanel flowLayoutStop;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelDetectionFrame;
     }
 }
