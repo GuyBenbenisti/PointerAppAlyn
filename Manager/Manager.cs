@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tobii.Interaction;
+using TobiiAgent;
+using UI;
 
 namespace Manager
 {
     class Manager
     {
-        private TobiiAgent.TobiiAgent m_Agent = new TobiiAgent.TobiiAgent(new Host());
-        private UI.ObjectDetector m_Detector;
+        private TobiiAgentAnalyzer m_Agent = new TobiiAgent.TobiiAgentAnalyzer(new Host());
+        private ObjectDetector m_Detector;
         private void TryAndRecognize(double i_PointX, double i_PointY)
         {
             //TODO: Implement

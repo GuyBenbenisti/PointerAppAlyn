@@ -113,6 +113,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -182,6 +183,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\whoIsThis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ObjectDetector\ObjectDetector.csproj">
+      <Project>{2522fe11-39c4-4981-a328-f5fe06fde235}</Project>
+      <Name>ObjectDetector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TobiiAgent\TobiiAgent.csproj">
+      <Project>{9c8933a3-2caa-477b-a08b-41507683cfe7}</Project>
+      <Name>TobiiAgent</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Alturos.Yolo.2.4.3\build\net461\Alturos.Yolo.targets" Condition="Exists('..\packages\Alturos.Yolo.2.4.3\build\net461\Alturos.Yolo.targets')" />

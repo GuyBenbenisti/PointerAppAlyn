@@ -9,10 +9,10 @@ namespace YoloPipe
     public class YoloJsonPipe
     {
         private YoloPipe _pipe;
-
-        public YoloJsonPipe(string exe, string arguments)
+        private EventHandler<DataReadyEventArgs> JsonReady;
+        public YoloJsonPipe(string exe, string arguments, string workingFolder)
         {
-            _pipe = new YoloPipe(exe, arguments);
+            _pipe = new YoloPipe(exe, arguments, workingFolder);
 
         }
 
@@ -28,9 +28,9 @@ namespace YoloPipe
             do
             {
                 line = await _pipe.ReadNext();
-                if (line != "#")
+                if (line != "#" && line != null)
                 {
-                    b.Append(line);
+                    b.AppendLine(line);
                 }
             } while (line != "#" && line != null);
 
@@ -42,5 +42,6 @@ namespace YoloPipe
 
             return result;
         }
+
     }
 }

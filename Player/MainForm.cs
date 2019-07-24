@@ -17,17 +17,39 @@ using System.Diagnostics;
 
 using AForge.Video;
 using AForge.Video.DirectShow;
+using TobiiAgent;
+using UI;
 
 namespace UI
 {
     public partial class MainForm : Form
     {
         private Stopwatch stopWatch = null;
+        private TobiiAgentAnalyzer _agent;
 
         // Class constructor
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void DetectionOccurred(double x, double y)
+        {
+            Action action = () =>
+            {
+                var scalingFactor = OS.GetScalingFactor(Handle);
+                x /= scalingFactor;
+                y /= scalingFactor;
+
+                var pt = this.PointToClient(new Point((int)x, (int)y));
+
+                if (Bounds.Contains(pt))
+                {
+                    indicator.Location = pt;
+                }
+            };
+
+            Invoke(action);
         }
 
         private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -38,8 +60,11 @@ namespace UI
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             localVideoCaptureDeviceToolStripMenuItem_Start();
+            _agent = new TobiiAgentAnalyzer(null);
+            _agent.StartWatching(DetectionOccurred);
 
         }
+
         // "Exit" menu item clicked
         private void exitToolStripMenuItem_Click( object sender, EventArgs e )
         {

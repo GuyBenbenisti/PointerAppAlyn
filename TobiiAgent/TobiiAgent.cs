@@ -8,13 +8,13 @@ using Tobii.Interaction.Framework;
 
 namespace TobiiAgent
 {
-    public class TobiiAgent
+    public class TobiiAgentAnalyzer
     {
         private readonly double m_FixationThreshold = 3; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
         private Host m_host;
         private FixationDataStream m_Stream;
-        public TobiiAgent(object host)
+        public TobiiAgentAnalyzer(object host)
         {
             m_SentForRecognition = false;
             this.m_host = new Host();
