@@ -5,14 +5,8 @@
     <Setting Name="SoundAlerts" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="hideCircleOnTouch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="CircleTimeout" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">30</Value>
-    </Setting>
     <Setting Name="gazeDelay" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>
