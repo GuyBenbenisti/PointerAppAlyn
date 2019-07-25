@@ -80,7 +80,7 @@ def text_to_speech_yolo(boxes, confidences, classids, idxs, labels, img, FLAGS):
             tts_file = os.path.join(tts_folder, object_to_speech_module + ".wav")
             # print(tts_file)
             playsound.playsound(tts_file)
-        print('python_cycle_finished')
+    print('python_cycle_finished')
 
 
 def show_image(img):
