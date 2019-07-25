@@ -104,7 +104,13 @@ namespace UI
             // 
             this.gazeDelayUpDown.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gazeDelayUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Player.Properties.Settings.Default, "gazeDelay", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.gazeDelayUpDown.DecimalPlaces = 1;
             this.gazeDelayUpDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gazeDelayUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.gazeDelayUpDown.Location = new System.Drawing.Point(41, 8);
             this.gazeDelayUpDown.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.gazeDelayUpDown.Name = "gazeDelayUpDown";
