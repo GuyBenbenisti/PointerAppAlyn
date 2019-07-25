@@ -10,7 +10,7 @@ namespace TobiiAgent
 {
     public class TobiiAgentAnalyzer : IAgentAnalyzer
     {
-        private readonly double m_FixationThreshold = 2; // Threshold for the kids gaze time before sending the object to the manager for recognition.
+        private readonly double m_FixationThreshold = 1.5; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
         //private bool m_FixationBeginWithoutEnd;
         private Host m_host;
@@ -53,7 +53,9 @@ namespace TobiiAgent
                         if (!m_SentForRecognition && ((fixation.Data.Timestamp - fixationBeginTime) / 1000) >= m_FixationThreshold)
                         {
                             //m_FixationBeginWithoutEnd = false;
+                            this.m_host.DisableConnection();
                             i_RecognizeMethod.Invoke(fixationPointX, fixationPointY);
+                            this.m_host.EnableConnection();
                             m_SentForRecognition = true;
                         }
                         break;

@@ -11,52 +11,51 @@ namespace UI
     {
         public float PointX { get; set; }
         public float PointY { get; set; }
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string m_SubscriptionKey = "f00b15e35dc54148aed210c0611136f5";
 
         public async void DetectFromImagePath()
         {
             // Change path inside Harness.TestYoloJsonPipe
             await Harness.TestYoloJsonPipe(PointX, PointY);
         }
-        public async void Detect(MemoryStream i_MS)
-        {
-            ComputerVisionClient computerVision = new ComputerVisionClient(
-                new ApiKeyServiceClientCredentials(m_SubscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
 
-            // Specify the Azure region
-            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
+        //public async void Detect(MemoryStream i_MS)
+        //{
+        //    ComputerVisionClient computerVision = new ComputerVisionClient(
+        //        new ApiKeyServiceClientCredentials(m_SubscriptionKey),
+        //        new System.Net.Http.DelegatingHandler[] { });
 
-            string localImagePath = @"C:\Users\t-gubenb\Desktop\Test\TobiiCapture.jpg";
-            var analysis = AnalyzeLocalAsyncFromMemoryStream(computerVision, i_MS);
-        }
+        //    // Specify the Azure region
+        //    computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
-        private static async Task AnalyzeLocalAsyncFromMemoryStream(
-            ComputerVisionClient computerVision, MemoryStream i_MS)
-        {
-                DetectResult analysis = await computerVision.DetectObjectsInStreamAsync(i_MS);
-                foreach (DetectedObject obj in analysis.Objects)
-                {
-                    //Console.WriteLine("ObjectProperty: {0}, Confidence: {1},", obj.ObjectProperty, obj.Confidence);
-                }
-        }
-        private static async Task AnalyzeLocalAsync(
-            ComputerVisionClient computerVision, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                return;
-            }
+        //    string localImagePath = @"C:\Users\t-gubenb\Desktop\Test\TobiiCapture.jpg";
+        //    var analysis = AnalyzeLocalAsyncFromMemoryStream(computerVision, i_MS);
+        //}
 
-            using (Stream imageStream = File.OpenRead(imagePath))
-            {
-                DetectResult analysis = await computerVision.DetectObjectsInStreamAsync(imageStream);
-                foreach (DetectedObject obj in analysis.Objects)
-                {
-                    //Console.WriteLine("ObjectProperty: {0}, Confidence: {1},", obj.ObjectProperty, obj.Confidence);
-                }
-            }
-        }
+        //private static async Task AnalyzeLocalAsyncFromMemoryStream(
+        //    ComputerVisionClient computerVision, MemoryStream i_MS)
+        //{
+        //        DetectResult analysis = await computerVision.DetectObjectsInStreamAsync(i_MS);
+        //        foreach (DetectedObject obj in analysis.Objects)
+        //        {
+        //            //Console.WriteLine("ObjectProperty: {0}, Confidence: {1},", obj.ObjectProperty, obj.Confidence);
+        //        }
+        //}
+        //private static async Task AnalyzeLocalAsync(
+        //    ComputerVisionClient computerVision, string imagePath)
+        //{
+        //    if (!File.Exists(imagePath))
+        //    {
+        //        return;
+        //    }
+
+        //    using (Stream imageStream = File.OpenRead(imagePath))
+        //    {
+        //        DetectResult analysis = await computerVision.DetectObjectsInStreamAsync(imageStream);
+        //        foreach (DetectedObject obj in analysis.Objects)
+        //        {
+        //            //Console.WriteLine("ObjectProperty: {0}, Confidence: {1},", obj.ObjectProperty, obj.Confidence);
+        //        }
+        //    }
+        //}
     }
 }
