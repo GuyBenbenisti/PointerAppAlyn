@@ -27,7 +27,7 @@ namespace UI
         //    // Specify the Azure region
         //    computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
-        //    string localImagePath = @"C:\Users\t-gubenb\Desktop\Test\TobiiCapture.jpg";
+        //    string localImagePath = @"C:\Users\username\Desktop\Test\TobiiCapture.jpg";
         //    var analysis = AnalyzeLocalAsyncFromMemoryStream(computerVision, i_MS);
         //}
 

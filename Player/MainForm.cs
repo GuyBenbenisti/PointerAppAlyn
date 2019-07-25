@@ -22,6 +22,7 @@ using Tobii.Interaction;
 using System.IO;
 using Common;
 using System.Linq;
+using System.Configuration;
 
 namespace UI
 {
@@ -130,7 +131,7 @@ namespace UI
         {
             try
             {
-                string path = @"C:\Users\t-gubenb\source\repos\PointerAppAlyn\FrameDir\";
+                string path = string.Concat(ConfigurationManager.AppSettings["SolutionDirectory"], @"\PointerAppAlyn\FrameDir\");
                 //var imageStream = Image.FromStream(ms);
                 //imageStream.Save(outStream, ImageFormat.Jpeg);
                 System.Drawing.Image imgSave = System.Drawing.Image.FromStream(ms);
