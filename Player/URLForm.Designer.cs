@@ -1,4 +1,4 @@
-﻿namespace Player
+﻿namespace UI
 {
     partial class URLForm
     {

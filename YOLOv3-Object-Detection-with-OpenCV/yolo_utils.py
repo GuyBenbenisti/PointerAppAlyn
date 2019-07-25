@@ -74,13 +74,16 @@ def text_to_speech_yolo(boxes, confidences, classids, idxs, labels, img, FLAGS):
         # print("smallest object in captured frame: " + object_to_speech_module)
 
         if (object_valid_flag):
+<<<<<<< HEAD
             project_root_folder = FLAGS.project_root
             tts_folder = os.path.join(project_root_folder, 'sound_files/tts/TTS_' + FLAGS.speech_language)
             # tts_folder = r"C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/sound_files/tts/TTS_" + speech_language
+=======
+            tts_folder = r"C:/Users/t-gubenb/source/repos/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV/sound_files/tts/TTS_" + speech_language
+>>>>>>> master
             tts_file = os.path.join(tts_folder, object_to_speech_module + ".wav")
             # print(tts_file)
             playsound.playsound(tts_file)
-
         print('python_cycle_finished')
 
 

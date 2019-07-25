@@ -139,7 +139,13 @@ if __name__ == '__main__':
 			frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 								height, width, img, colors, labels, FLAGS)
 			
+<<<<<<< HEAD
 			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, img, FLAGS)
+=======
+			# print(boxes)
+
+			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, img, FLAGS)
+>>>>>>> master
 
 	elif FLAGS.video_path:
 		# Read the video
@@ -204,6 +210,10 @@ if __name__ == '__main__':
 				# azure_speech_json = infer_speech_azure(frame)
 
 				# print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
+<<<<<<< HEAD
+=======
+				# print(boxes)
+>>>>>>> master
 
 				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, frame, FLAGS)
 
