@@ -103,6 +103,8 @@ if __name__ == '__main__':
 		subprocess.call(['./yolov3-coco/get_model.sh'])
 
 	# Get the labels
+	print(FLAGS.labels)
+	print(os.getcwd())
 	labels = open(FLAGS.labels).read().strip().split('\n')
 
 	# Intializing colors to represent each label uniquely
@@ -131,7 +133,7 @@ if __name__ == '__main__':
                                Please check the path provided!'
 
 		finally:
-			FLAGS.project_root = FLAGS.image_path[0:FLAGS.image_path.find('temp/image.jpeg')]
+			FLAGS.project_root = FLAGS.image_path[0:FLAGS.image_path.find('temp')]
 
 			# img, _, _, _, _ = infer_image(net, layer_names, height, width, img, colors, labels, FLAGS)
 			# show_image(img)

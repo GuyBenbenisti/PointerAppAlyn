@@ -131,7 +131,7 @@ namespace UI
         {
             try
             {
-                string path = string.Concat(ConfigurationManager.AppSettings["SolutionDirectory"], @"\PointerAppAlyn\FrameDir\");
+                string path = string.Concat(ConfigurationManager.AppSettings["SolutionDirectory"], @"\PointerAppAlyn\YOLOv3-Object-Detection-with-OpenCV\temp\");
                 //var imageStream = Image.FromStream(ms);
                 //imageStream.Save(outStream, ImageFormat.Jpeg);
                 System.Drawing.Image imgSave = System.Drawing.Image.FromStream(ms);
