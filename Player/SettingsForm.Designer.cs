@@ -24,12 +24,8 @@ namespace UI
 
         private System.Windows.Forms.CheckBox soundAlertsCheckBox;
         private System.Windows.Forms.FlowLayoutPanel mainPanel;
-        private System.Windows.Forms.CheckBox hideCircleCheckBox;
-        private System.Windows.Forms.Label circleShowTimeout;
-        private System.Windows.Forms.NumericUpDown circleTImeoutUpDown;
         private System.Windows.Forms.Label gazeDelay;
         private System.Windows.Forms.NumericUpDown gazeDelayUpDown;
         private System.Windows.Forms.TableLayoutPanel gazePanel;
-        private System.Windows.Forms.TableLayoutPanel circleTOPanel;
     }
 }

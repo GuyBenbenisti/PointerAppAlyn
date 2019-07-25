@@ -37,31 +37,7 @@ namespace Player.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool hideCircleOnTouch {
-            get {
-                return ((bool)(this["hideCircleOnTouch"]));
-            }
-            set {
-                this["hideCircleOnTouch"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
-        public decimal CircleTimeout {
-            get {
-                return ((decimal)(this["CircleTimeout"]));
-            }
-            set {
-                this["CircleTimeout"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal gazeDelay {
             get {
                 return ((decimal)(this["gazeDelay"]));
