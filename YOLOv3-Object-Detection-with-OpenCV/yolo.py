@@ -6,7 +6,6 @@ import time
 import os
 from yolo_utils import infer_image, show_image, print_json_to_terminal, infer_image_azure, text_to_speech_yolo
 import json
-from demo_cfg import image_path, speech_language
 
 import requests
 from PIL import Image
@@ -92,6 +91,11 @@ if __name__ == '__main__':
 		default=-999,
 		help='tobii-gaze-y-position.')
 
+	parser.add_argument('-ln', '--speech-language',
+		type=str,
+		default='HE',
+		help='specify speech language: HE/AR')
+
 	FLAGS, unparsed = parser.parse_known_args()
 
 	# Download the YOLOv3 models if needed
@@ -127,15 +131,15 @@ if __name__ == '__main__':
                                Please check the path provided!'
 
 		finally:
+			FLAGS.project_root = FLAGS.image_path[0:FLAGS.image_path.find('temp/image.jpeg')]
+
 			# img, _, _, _, _ = infer_image(net, layer_names, height, width, img, colors, labels, FLAGS)
 			# show_image(img)
 
 			frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 								height, width, img, colors, labels, FLAGS)
 			
-			print(boxes)
-
-			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, img, FLAGS)
+			text_to_speech_yolo(boxes, confidences, classids, idxs, labels, img, FLAGS)
 
 	elif FLAGS.video_path:
 		# Read the video
@@ -190,6 +194,8 @@ if __name__ == '__main__':
 			height, width = frame.shape[:2]
 
 			if count == 0:
+				FLAGS.project_root = 'C:/Users/taaviv/PointerAppAlyn/YOLOv3-Object-Detection-with-OpenCV'
+
 				# print("frame: " + str(frame))
 				frame, boxes, confidences, classids, idxs = infer_image(net, layer_names, \
 		    						height, width, frame, colors, labels, FLAGS)
@@ -198,12 +204,11 @@ if __name__ == '__main__':
 				# azure_speech_json = infer_speech_azure(frame)
 
 				# print_json_to_terminal(boxes, confidences, classids, idxs, labels, print_en=1)
-				print(boxes)
 
-				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, speech_language, frame, FLAGS)
+				text_to_speech_yolo(boxes, confidences, classids, idxs, labels, frame, FLAGS)
 
     			# save to file
-				cv.imwrite(image_path, frame)
+				cv.imwrite(os.path.join(FLAGS.project_root, 'temp/image.jpeg'), frame)
 
 				count += 1
 			else:
