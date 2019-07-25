@@ -10,7 +10,7 @@ namespace TobiiAgent
 {
     public class TobiiAgentAnalyzer : IAgentAnalyzer
     {
-        private readonly double m_FixationThreshold = 1.5; // Threshold for the kids gaze time before sending the object to the manager for recognition.
+        private double m_FixationThreshold = 1.5; // Threshold for the kids gaze time before sending the object to the manager for recognition.
         private bool m_SentForRecognition;
         //private bool m_FixationBeginWithoutEnd;
         private Host m_host;
@@ -69,6 +69,11 @@ namespace TobiiAgent
                         throw new InvalidOperationException("Unknown fixation event type, which doesn't have explicit handling.");
                 }
             };
+        }
+
+        public void UpdateDelayThreshold(double i_Delay)
+        {
+            this.m_FixationThreshold = i_Delay;
         }
     }
 }

@@ -25,5 +25,10 @@ namespace TobiiAgent
                 await Task.Delay(700);
             }
         }
+
+        public void UpdateDelayThreshold(double i_Delay)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

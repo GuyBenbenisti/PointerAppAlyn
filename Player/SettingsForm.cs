@@ -23,10 +23,12 @@ namespace UI
 {
     public partial class SettingsForm : Form
     {
+        private Action<double> updateDelay;
         // Class constructor
-        public SettingsForm()
+        public SettingsForm(Action<double> i_UpdateDelay)
         {
             InitializeComponent();
+            updateDelay = i_UpdateDelay;
         }
 
         private void InitializeComponent()
@@ -69,11 +71,11 @@ namespace UI
             this.soundAlertsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.soundAlertsCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Player.Properties.Settings.Default, "SoundAlerts", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.soundAlertsCheckBox.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soundAlertsCheckBox.Location = new System.Drawing.Point(282, 23);
+            this.soundAlertsCheckBox.Location = new System.Drawing.Point(206, 23);
             this.soundAlertsCheckBox.Name = "soundAlertsCheckBox";
             this.soundAlertsCheckBox.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.soundAlertsCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.soundAlertsCheckBox.Size = new System.Drawing.Size(159, 39);
+            this.soundAlertsCheckBox.Size = new System.Drawing.Size(235, 54);
             this.soundAlertsCheckBox.TabIndex = 0;
             this.soundAlertsCheckBox.Text = "התראות קוליות";
             this.soundAlertsCheckBox.UseVisualStyleBackColor = true;
@@ -85,7 +87,7 @@ namespace UI
             this.gazePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.gazePanel.Controls.Add(this.gazeDelayUpDown, 1, 0);
             this.gazePanel.Controls.Add(this.gazeDelay, 0, 0);
-            this.gazePanel.Location = new System.Drawing.Point(51, 68);
+            this.gazePanel.Location = new System.Drawing.Point(51, 83);
             this.gazePanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.gazePanel.Name = "gazePanel";
             this.gazePanel.RowCount = 1;
@@ -99,10 +101,10 @@ namespace UI
             this.gazeDelayUpDown.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gazeDelayUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Player.Properties.Settings.Default, "gazeDelay", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.gazeDelayUpDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gazeDelayUpDown.Location = new System.Drawing.Point(41, 8);
+            this.gazeDelayUpDown.Location = new System.Drawing.Point(41, 3);
             this.gazeDelayUpDown.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.gazeDelayUpDown.Name = "gazeDelayUpDown";
-            this.gazeDelayUpDown.Size = new System.Drawing.Size(120, 29);
+            this.gazeDelayUpDown.Size = new System.Drawing.Size(120, 40);
             this.gazeDelayUpDown.TabIndex = 3;
             this.gazeDelayUpDown.Value = global::Player.Properties.Settings.Default.gazeDelay;
             // 
@@ -127,11 +129,11 @@ namespace UI
             this.hideCircleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hideCircleCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Player.Properties.Settings.Default, "hideCircleOnTouch", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.hideCircleCheckBox.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideCircleCheckBox.Location = new System.Drawing.Point(222, 141);
+            this.hideCircleCheckBox.Location = new System.Drawing.Point(113, 156);
             this.hideCircleCheckBox.Name = "hideCircleCheckBox";
             this.hideCircleCheckBox.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.hideCircleCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.hideCircleCheckBox.Size = new System.Drawing.Size(219, 39);
+            this.hideCircleCheckBox.Size = new System.Drawing.Size(328, 54);
             this.hideCircleCheckBox.TabIndex = 1;
             this.hideCircleCheckBox.Text = "הסתר עיגול רק בנגיעה";
             this.hideCircleCheckBox.UseVisualStyleBackColor = true;
@@ -143,7 +145,7 @@ namespace UI
             this.circleTOPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.circleTOPanel.Controls.Add(this.circleTImeoutUpDown, 1, 0);
             this.circleTOPanel.Controls.Add(this.circleShowTimeout, 0, 0);
-            this.circleTOPanel.Location = new System.Drawing.Point(51, 186);
+            this.circleTOPanel.Location = new System.Drawing.Point(51, 216);
             this.circleTOPanel.Name = "circleTOPanel";
             this.circleTOPanel.RowCount = 1;
             this.circleTOPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -156,10 +158,10 @@ namespace UI
             this.circleTImeoutUpDown.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.circleTImeoutUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Player.Properties.Settings.Default, "CircleTimeout", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.circleTImeoutUpDown.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circleTImeoutUpDown.Location = new System.Drawing.Point(41, 8);
+            this.circleTImeoutUpDown.Location = new System.Drawing.Point(41, 3);
             this.circleTImeoutUpDown.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.circleTImeoutUpDown.Name = "circleTImeoutUpDown";
-            this.circleTImeoutUpDown.Size = new System.Drawing.Size(120, 29);
+            this.circleTImeoutUpDown.Size = new System.Drawing.Size(120, 40);
             this.circleTImeoutUpDown.TabIndex = 3;
             this.circleTImeoutUpDown.Value = global::Player.Properties.Settings.Default.CircleTimeout;
             // 
@@ -206,6 +208,7 @@ namespace UI
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            updateDelay.Invoke(this.gazeDelayUpDown.Value);
         }
 
         private void circleShowTimeout_Click(object sender, EventArgs e)

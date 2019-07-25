@@ -349,7 +349,7 @@ namespace UI
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            SettingsForm settings = new SettingsForm();
+            SettingsForm settings = new SettingsForm(m_Agent.UpdateDelayThreshold);
             settings.ShowDialog();
         }
     }
